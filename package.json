@@ -1,0 +1,35 @@
+{
+  "name": "bantr",
+  "version": "1.0.0",
+  "description": "A social media themed demo of Node, Handlebars, Express, and Sequelize",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bant-r/Bantr.git"
+  },
+  "keywords": [
+    "project"
+  ],
+  "author": "Christina Engelhardt, Cameron Hickey, Amber Alex Lee, Anusha Ravva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bant-r/Bantr/issues"
+  },
+  "homepage": "https://github.com/bant-r/Bantr#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.1",
+    "mysql2": "^2.2.5",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.3.5"
+  }
+}
