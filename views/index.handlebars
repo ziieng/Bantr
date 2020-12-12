@@ -5,7 +5,7 @@
 <ul>
   {{#each cats}}
     {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
+      {{> buzzes/buzz-block sleep=true}}
     {{/unless}}
   {{/each}}
 </ul>
@@ -15,7 +15,7 @@
 <ul>
   {{#each cats}}
     {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
+      {{> buzzes/buzz-block sleep=false}}
     {{/if}}
   {{/each}}
 </ul>
