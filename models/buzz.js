@@ -2,11 +2,6 @@
 // Creating our Buzz model for posts
 module.exports = function (sequelize, DataTypes) {
   var Buzz = sequelize.define("Buzz", {
-    freezeTableName: true,
-    author_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
     body: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -18,6 +13,8 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true,
     }
+  }, {
+    freezeTableName: true
   });
 
   Buzz.associate = function (models) {
