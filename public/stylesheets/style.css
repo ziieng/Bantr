@@ -1,4 +1,50 @@
 form.signup,
 form.login {
-  margin-top: 50px;
+  float: left;
+}
+
+#loginBG{
+  background-image: url("./img/loginBG1.jpg");
+}
+.log-in {
+  background-color: #f5d452;
+  width: 400px;
+  height: 400px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  
+  padding: 50px;
+}
+.shapes {
+  margin-top: 5%;
+  width: 80%;
+  height: auto;
+}
+
+#rectangle-top {
+  width: 600px;
+  height: 80px;
+  background: #6d007be5;
+  margin: 5px;
+  float: left;
+}
+#rectangle-right {
+  width: 80px;
+  height: 400px;
+  margin: 5px;
+  background: #6d007be5;
+}
+#rectangle-bottom {
+  width: 600px;
+  height: 80px;
+  background: #6d007bee;
+  margin: 5px;
+  float: left;
+}
+#rectangle-left {
+  width: 80px;
+  height: 400px;
+  margin: 5px;
+  background: #6d007be5;
 }
