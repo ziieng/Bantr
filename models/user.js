@@ -25,6 +25,11 @@ module.exports = function (sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    // Store url for Gravatar
+    avatar: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   });
 
