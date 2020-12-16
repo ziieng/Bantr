@@ -81,3 +81,35 @@ img {
 .bantr {
   text-align: center;
 }
+
+.list-group{
+  background-color:white;
+}
+
+.navbar{
+  background-color:#480052
+}
+
+#nav-heading{
+  color: #E7BC0D
+}
+
+#chats1{
+ background-color: #164050;
+ color:white;
+}
+
+#chats2{
+  background-color: #F45A01;
+  color:white;
+}
+
+#posts{
+  background-color: #008F47;
+  color:white;
+}
+
+#friends-list{
+  background-color:#164050;
+  color:#F45A01;
+}
