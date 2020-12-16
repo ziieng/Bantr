@@ -1,4 +1,115 @@
+* {
+  box-sizing: border-box;
+}
 form.signup,
 form.login {
-  margin-top: 50px;
+  float: left;
+}
+
+html,
+body,
+form {
+  width: 100vw;
+  height: 100%;
+  position: relative;
+}
+
+#loginBG {
+  background-image: url("./img/loginBG2.jpg");
+}
+/* #signupBG {
+  background-image: url("./img/loginBG2.jpg");
+} */
+
+#avatars {
+  margin-top: 30px;
+  margin-bottom: 20%;
+  background-color: white;
+  width: 50%;
+  clear: both;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  padding: 20px;
+}
+
+.fixCol {
+  padding-left: 0px !important;
+}
+#fixColBL {
+  padding-left: 60px !important;
+}
+
+@include media-breakpoint-up(sm) {
+  .fixColBL2 {
+    padding-left: 0px;
+  }
+}
+
+.fixRow {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+.log-in {
+  background-color: #f5d452;
+  width: 400px;
+  height: 400px;
+  margin: 50px;
+  padding: 50px;
+}
+
+.loginV2 {
+  background-color: #6d027bd3;
+  margin-top: 10%;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contStyle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bantr {
+  text-align: center;
+}
+
+.list-group{
+  background-color:white;
+}
+
+.navbar{
+  background-color:#480052
+}
+
+#nav-heading{
+  color: #E7BC0D
+}
+
+#chats1{
+ background-color: #164050;
+ color:white;
+}
+
+#chats2{
+  background-color: #F45A01;
+  color:white;
+}
+
+#posts{
+  background-color: #008F47;
+  color:white;
+}
+
+#friends-list{
+  background-color:#164050;
+  color:#F45A01;
 }
