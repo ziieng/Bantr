@@ -6,13 +6,20 @@ $(document).ready(function () {
   let userInput = $("#username-input");
   let gravatar = require("gravatar");
   
-  $("#email-input").change(function () {
+  $("#email-input").on("click", function () {
     let email = $("#email-input").val().trim();
-    //avatar1element.src = gravatar.url(email, { protocol: 'https', d: "mp"})
-    //avatar2element.src = gravatar.url(email, { protocol: 'https', d: "identicon", f: "y" })
-    //avatar3element.src = gravatar.url(email, { protocol: 'https', d: "wavatar", f: "y" })
-    //avatar4element.src = gravatar.url(email, { protocol: 'https', d: "retro", f: "y" })
-    //avatar5element.src = gravatar.url(email, { protocol: 'https', d: "robohash", f: "y" })
+    avatar1element.src = gravatar.url(email, { protocol: 'https', d: "mp"})
+    avatar2element.src = gravatar.url(email, { protocol: 'https', d: "identicon", f: "y" })
+    avatar3element.src = gravatar.url(email, { protocol: 'https', d: "wavatar", f: "y" })
+    avatar4element.src = gravatar.url(email, { protocol: 'https', d: "retro", f: "y" })
+    avatar5element.src = gravatar.url(email, { protocol: 'https', d: "robohash", f: "y" })
+
+    $("#grav1").attr("src", avatar1element.src);
+    $("#grav2").attr("src", avatar2element.src);
+    $("#grav3").attr("src", avatar3element.src);
+    $("#grav4").attr("src", avatar4element.src);
+    $("#grav5").attr("src", avatar5element.src);
+   
   });
 
   // When the signup button is clicked, we validate the email and password are not blank

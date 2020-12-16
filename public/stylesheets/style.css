@@ -35,14 +35,20 @@ img {
   padding: 20px;
 }
 
-.fixCol{
+.fixCol {
   padding-left: 0px !important;
 }
-#fixColBL{
+#fixColBL {
   padding-left: 60px !important;
 }
 
-.fixRow{
+@include media-breakpoint-up(sm) {
+  .fixColBL2 {
+    padding-left: 0px;
+  }
+}
+
+.fixRow {
   padding-left: 0px !important;
   padding-right: 0px !important;
   margin-left: 0px !important;
