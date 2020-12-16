@@ -17,6 +17,9 @@ form {
 #loginBG {
   background-image: url("./img/loginBG2.jpg");
 }
+/* #signupBG {
+  background-image: url("./img/loginBG2.jpg");
+} */
 
 #avatars {
   margin-top: 30px;
@@ -32,8 +35,18 @@ img {
   padding: 20px;
 }
 
-#signupBG {
-  background-image: url("./img/loginBG2.jpg");
+.fixCol{
+  padding-left: 0px !important;
+}
+#fixColBL{
+  padding-left: 60px !important;
+}
+
+.fixRow{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
 }
 .log-in {
   background-color: #f5d452;
