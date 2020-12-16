@@ -1,5 +1,6 @@
 .DS_Store
 test_amber/
+backup/
 
 # Logs
 logs

@@ -1,7 +1,7 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": "pass",
+    "password": "DominoL37#1",
     "database": "bantr_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
