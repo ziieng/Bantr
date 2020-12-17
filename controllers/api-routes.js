@@ -2,9 +2,9 @@
 var db = require("../models");
 var passport = require("../config/passport");
 var express = require("express");
-var router = express.Router();
+const gravatar = require("gravatar")
 
-module.exports = function () {
+module.exports = function (router) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -52,14 +52,26 @@ module.exports = function () {
     }
   });
 
-  router.post("/api/buzz", function (req, res) {
-    users.create(["body", "reply_to", "userId"], [req.body.body, req.body.reply, req.body.userId], function (result) {
-      // Send back the ID of the new quote
+  //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
+  router.post("/api/buzz/", function (req, res) {
+    users.create(["body", "reply_to", "userId"], [req.body.body, req.body.reply,
+    req.user.id], function (result) {
+      // Send back the ID of the new buzz
       res.json({ id: result.insertId });
     });
   });
 
+  //route to make Gravatar image links for the signup page
+  router.post("/api/grav/", function (req, res) {
+    let email = req.body.email;
+    let list = {
+      av1: gravatar.url(email, { protocol: 'https', d: "mp" }),
+      av2: gravatar.url(email, { protocol: 'https', d: "identicon", f: "y" }),
+      av3: gravatar.url(email, { protocol: 'https', d: "wavatar", f: "y" }),
+      av4: gravatar.url(email, { protocol: 'https', d: "retro", f: "y" }),
+      av5: gravatar.url(email, { protocol: 'https', d: "robohash", f: "y" })
+    };
+    res.json(list)
+  });
 
-};
-
-
+}
