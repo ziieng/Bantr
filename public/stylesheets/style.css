@@ -17,7 +17,7 @@ form {
 #loginBG {
   background-image: url("./img/loginBG2.jpg");
 }
-/* #signupBG {
+/* .signupBG {
   background-image: url("./img/loginBG2.jpg");
 } */
 
@@ -56,8 +56,7 @@ img {
 }
 .log-in {
   background-color: #f5d452;
-  width: 400px;
-  height: 400px;
+  width: 500px;
   margin: 50px;
   padding: 50px;
 }
@@ -65,8 +64,7 @@ img {
 .loginV2 {
   background-color: #6d027bd3;
   margin-top: 10%;
-  width: auto;
-  height: auto;
+  padding: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,4 +110,17 @@ img {
 #friends-list{
   background-color:#164050;
   color:#F45A01;
+}
+
+/* Classes for avatar selection */
+.avChoice {
+  width: 130px;
+  height: 130px;
+  background-color: #164050;
+  align-items: center;
+  justify-content: center;
+}
+
+.avActive {
+  background-color: #F45A01;
 }
