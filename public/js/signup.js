@@ -1,4 +1,7 @@
 $(document).ready(function () {
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
   // Getting references to our form and input
   let signUpForm = $("form.signup");
   let emailInput = $("#email-input");
