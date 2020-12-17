@@ -9,17 +9,17 @@ form.login {
 html,
 body,
 form {
-  width: 100vw;
-  height: 100%;
+  /* width: 100vw;
+  height: 100%; */
   position: relative;
 }
 
 #loginBG {
   background-image: url("./img/loginBG2.jpg");
 }
-/* .signupBG {
-  background-image: url("./img/loginBG2.jpg");
-} */
+.signupBG {
+  background-image: url("./img/bubbles.png");
+}
 
 #avatars {
   margin-top: 30px;
@@ -57,14 +57,14 @@ img {
 .log-in {
   background-color: #f5d452;
   width: 500px;
-  margin: 50px;
-  padding: 50px;
+  margin: 30px;
+  padding: 30px;
 }
 
 .loginV2 {
   background-color: #6d027bd3;
-  margin-top: 10%;
-  padding: 50px;
+  margin-top: 20px;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
