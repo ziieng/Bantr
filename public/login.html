@@ -1,52 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Bantr</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"
-    />
-    <link href="stylesheets/style.css" rel="stylesheet" />
-  </head>
 
-  <body id="loginBG">
-    <div class="container-fluid contStyle">
-      <div class="row ">
-        <div class="col-md-12 loginV2">
-          <form class="login log-in">
-            <h1 class="bantr">bantr </h1>
-            <div class="form-group">
-              <label for="exampleInputEmail1">email</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email-input"
-                placeholder="janedoe@coolest.com"
-              />
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="password-input"
-                placeholder="supersecretPassword"
-              />
-            </div>
-            <button type="submit" class="btn btn-default">login</button>
-            <p style="padding-top: 10px">or sign up <a href="./signup.html">here</a></p>
-          </form>
+<head>
+  <title>Bantr</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="stylesheets/style.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+</head>
+
+<body id="loginBG">
+
+  <div class="container contLogin">
+    <div class="row ">
+      <div class="col-md-12 styleForm">
+        <form class="login log-in bantrApplogin">
+          <h1 class="bantr">bantr </h1>
+          <div class="form-group formFix ">
+            <label for="exampleInputEmail1">email</label>
+            <input type="email" class="form-control" id="email-input" placeholder="janedoe@coolest.com" />
+          </div>
+          <div class="form-group formFix ">
+            <label for="exampleInputPassword1">password</label>
+            <input type="password" class="form-control" id="password-input" placeholder="supersecretPassword" />
+          
+          <button  type="submit" class="btn form.login formFix formFixButton">login</button>
+          <p class=" formFix ">or sign up <a href="./signup.html">here</a></p>
         </div>
-        </div>
-        
-        </div>
+        </form>
       </div>
-      
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/login.js"></script>
-  </body>
+  </div>
+  </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/login.js"></script>
+</body>
+
 </html>
