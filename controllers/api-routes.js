@@ -55,7 +55,7 @@ module.exports = function (app) {
   app.post("/api/buzz/", function (req, res) {
     users.create(["body", "reply_to", "userId"], [req.body.body, req.body.reply,
     req.user.id], function (result) {
-      // Send back the ID of the new buzz
+      // Send back the ID of the new buzz, for fun
       res.json({ id: result.insertId });
     });
   });
