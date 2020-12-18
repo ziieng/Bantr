@@ -64,7 +64,7 @@ let stuff = async function (app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/dashboard", isAuthenticated, async function (req, res) {
-    let { budList, budDetails } = await budLister(req.user)
+    let { budList, budDetails } = await budLister({ from: req.user.id })
     let posts = await postLister(budList)
     res.render("dashboard", { buds: budDetails, buzz: posts });
   });
@@ -116,20 +116,41 @@ async function postLister(whereId) {
   return postData
 }
 
-async function budLister(user) {
-  let buds = await db.Buds.findAll({
-    include: { model: db.User, as: "addressee", required: true, attributes: ["username", "avatar"] },
-    where: { UserId: user.id }
-  })
+async function budLister(ref) {
+  let buds = []
+  let budList = []
+  let budDetails = []
+  if (ref.from) {
+    //query for "followed by X"
+    buds = await db.Buds.findAll({
+      include: { model: db.User, as: "addressee", required: true, attributes: ["username", "avatar"] },
+      where: { UserId: ref.from }
+    })
+    for (line of buds) {
+      budList.push(line.addresseeId)
+      budDetails.push(line.addressee.dataValues)
+    }
+  } else if (ref.to) {
+    //query for "all following X"
+    buds = await db.Buds.findAll({
+      attributes: ["UserId"],
+      where: { addresseeId: ref.to }
+    })
+    console.log(buds)
+    for (line of buds) {
+      budList.push(line.UserId)
+    }
+    buds = await db.User.findAll({
+      attributes: ["username", "avatar"],
+      where: { id: budList },
+    })
+    for (line of buds) {
+      budDetails.push(line.dataValues)
+    }
+  }
   // if (buds = "[]") {
   //   console.log("empty")
   // }
-  let budList = []
-  let budDetails = []
-  for (line of buds) {
-    budList.push(line.addresseeId)
-    budDetails.push(line.addressee.dataValues)
-  }
   return { budList: budList, budDetails: budDetails }
 }
 
