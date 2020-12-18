@@ -73,24 +73,8 @@ let stuff = async function (app) {
       budList.push(line.addresseeId)
       budDetails.push(line.addressee.dataValues)
     }
-    console.log(budList)
-    console.log(budDetails)
-    let posts = await db.Buzz.findAll({
-      include: { model: db.User, required: true, attributes: ["username", "avatar"] },
-      where: { UserId: budList }
-    })
-    console.log(posts[0])
-    let postData = []
-    for (line of posts) {
-      postData.push({
-        body: line.dataValues.body,
-        reply: line.dataValues.reply_to,
-        created: line.dataValues.createdAt,
-        username: line.User.dataValues.username,
-        avatar: line.User.dataValues.avatar
-      })
-    }
-    res.render("dashboard", { buds: budDetails, buzzes: postData });
+    let posts = await postLister(budList)
+    res.render("dashboard", { buds: budDetails, buzzes: posts });
   });
 
   //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
@@ -115,6 +99,29 @@ let stuff = async function (app) {
     res.json(list)
   });
 
+}
+
+async function postLister(whereId) {
+  let posts = await db.Buzz.findAll({
+    include: {
+      model: db.User,
+      required: true,
+      attributes: ["username", "avatar"]
+    },
+    where: { UserId: whereId }
+  })
+  console.log(posts[0])
+  let postData = []
+  for (line of posts) {
+    postData.push({
+      body: line.dataValues.body,
+      reply: line.dataValues.reply_to,
+      created: line.dataValues.createdAt,
+      username: line.User.dataValues.username,
+      avatar: line.User.dataValues.avatar
+    })
+  }
+  return postData
 }
 
 module.exports = stuff
