@@ -6,6 +6,7 @@ const { Op } = require("sequelize");
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
+const user = require("../models/user");
 
 let stuff = async function (app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -75,11 +76,21 @@ let stuff = async function (app) {
     console.log(budList)
     console.log(budDetails)
     let posts = await db.Buzz.findAll({
-      // include: { model: User },
+      include: { model: db.User, required: true, attributes: ["username", "avatar"] },
       where: { UserId: budList }
     })
-    // console.log(posts)
-    res.render("dashboard", { buds: budDetails, buzzes: posts });
+    console.log(posts[0])
+    let postData = []
+    for (line of posts) {
+      postData.push({
+        body: line.dataValues.body,
+        reply: line.dataValues.reply_to,
+        created: line.dataValues.createdAt,
+        username: line.User.dataValues.username,
+        avatar: line.User.dataValues.avatar
+      })
+    }
+    res.render("dashboard", { buds: budDetails, buzzes: postData });
   });
 
   //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
