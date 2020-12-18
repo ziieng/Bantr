@@ -1,0 +1,37 @@
+<nav class="navbar">
+  <span class="navbar-brand mb-0 h1" id="nav-heading">Chat Exchanges</span>
+</nav>
+<!--Container -->
+<div class="container" style="margin:100px;align-items: center;">
+  <div class="row">
+    <!--Column 1-->
+    <div class="col-md-6">
+      <div class="container">
+        <h1>Followers</h1>
+        <ul class="list-group">
+          {{#each buds}}
+          <div class="alert alert-info" id="chats1">
+            <img src="{{avatar}}">
+            {{dataValues.addressee_id}}
+          </div>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Column 2 -->
+    <div class="col-md-6">
+      <div class="container">
+        <h1>Following</h1>
+        <ul class="list-group">
+          {{#each buzzes}}
+          <div class="alert alert-info" id="chats2">
+            {{dataValues.UserId}}
+            {{dataValues.body}}
+          </div>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
