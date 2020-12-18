@@ -1,40 +1,60 @@
 <nav class="navbar">
-    <span class="navbar-brand mb-0 h1" id="nav-heading">User Profiles</span>
+  <span class="navbar-brand mb-0 h1" id="nav-heading">User Profiles</span>
 </nav>
 
 <!--Container -->
 <div class="container" style="margin:100px">
-<div class="row">
-  <div class="col-md-3">
-        <div class="container">
-          <div class="row">
-            <img src="/Users/anusha/developer/Bantr/public/stylesheets/kitten-small (1).png" class="img-thumbnail" alt="...">
-          </div>
-          <div class="row">
-           
+  <div class="row">
+    <div class="col-md-3">
+      <div class="container">
+        <div class="row">
+          <img src="/Users/anusha/developer/Bantr/public/stylesheets/kitten-small (1).png" class="img-thumbnail"
+            alt="...">
+        </div>
+        <div class="row">
+
           <ul class="list-group" style="margin-top:100px;width:250px">
             {{#each friends}}
-            <li class="list-group-item" id="friends-list">{{this.name}}<img src="{{this.avatar}}" class="img-thumbnail" alt="..." style="width:30px;height:30px;float:right"></li>
-           {{/each}}
+            <li class="list-group-item" id="friends-list">{{this.name}}<img src="{{this.avatar}}" class="img-thumbnail"
+                alt="..." style="width:30px;height:30px;float:right"></li>
+            {{/each}}
           </ul>
-          </div>
         </div>
+      </div>
     </div>
 
 
-<!-- Column 2 -->
-  <div class="col-md-9">
+    <!-- Column 2 -->
+    <div class="col-md-9">
       <div class="container">
         <ul class="list-group" style="margin-left:200px">
           {{#each followers}}
-          <div class="alert alert-info" id="posts" >
-           {{this.body}}
+          <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
           </div>
-         {{/each}}
+          {{!-- <div class="alert alert-info" id="posts" >
+           {{this.body}}
+          </div> --}}
+          {{/each}}
         </ul>
       </div>
+    </div>
   </div>
 </div>
+
+
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
+    </p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
 </div>
-  
-  
