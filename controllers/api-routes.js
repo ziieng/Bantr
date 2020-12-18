@@ -1,21 +1,20 @@
 // Requiring our models and passport as we've configured it
-var db = require("../models");
-var passport = require("../config/passport");
-var express = require("express");
-var router = express.Router();
+const db = require("../models");
+const passport = require("../config/passport");
+const gravatar = require("gravatar")
 
-module.exports = function () {
+module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
-  router.post("/api/login", passport.authenticate("local"), function (req, res) {
+  app.post("/api/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
-  router.post("/api/signup", function (req, res) {
+  app.post("/api/signup", function (req, res) {
     db.User.create({
       email: req.body.email,
       username: req.body.username,
@@ -31,14 +30,14 @@ module.exports = function () {
   });
 
   // Route for logging user out
-  router.get("/logout", function (req, res) {
+  app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
   });
 
 
   // Route for getting some data about our user to be used client side
-  router.get("/api/user_data", function (req, res) {
+  app.get("/api/user_data", function (req, res) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -52,14 +51,26 @@ module.exports = function () {
     }
   });
 
-  router.post("/api/buzz", function (req, res) {
-    users.create(["body", "reply_to", "userId"], [req.body.body, req.body.reply, req.body.userId], function (result) {
-      // Send back the ID of the new quote
+  //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
+  app.post("/api/buzz/", function (req, res) {
+    users.create(["body", "reply_to", "userId"], [req.body.body, req.body.reply,
+    req.user.id], function (result) {
+      // Send back the ID of the new buzz
       res.json({ id: result.insertId });
     });
   });
 
+  //route to make Gravatar image links for the signup page
+  app.post("/api/grav/", function (req, res) {
+    let email = req.body.email;
+    let list = {
+      av1: gravatar.url(email, { protocol: 'https', d: "mp" }),
+      av2: gravatar.url(email, { protocol: 'https', d: "identicon", f: "y" }),
+      av3: gravatar.url(email, { protocol: 'https', d: "wavatar", f: "y" }),
+      av4: gravatar.url(email, { protocol: 'https', d: "retro", f: "y" }),
+      av5: gravatar.url(email, { protocol: 'https', d: "robohash", f: "y" })
+    };
+    res.json(list)
+  });
 
-};
-
-
+}

@@ -1,35 +1,39 @@
 $(document).ready(function () {
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
   // Getting references to our form and input
   let signUpForm = $("form.signup");
   let emailInput = $("#email-input");
   let passwordInput = $("#password-input");
   let userInput = $("#username-input");
-  let gravatar = require("gravatar");
   
-  $("#email-input").on("click", function () {
+  //populate avatar choices with user's email when field changes
+  $("#email-input").change(function () {
     let email = $("#email-input").val().trim();
-    avatar1element.src = gravatar.url(email, { protocol: 'https', d: "mp"})
-    avatar2element.src = gravatar.url(email, { protocol: 'https', d: "identicon", f: "y" })
-    avatar3element.src = gravatar.url(email, { protocol: 'https', d: "wavatar", f: "y" })
-    avatar4element.src = gravatar.url(email, { protocol: 'https', d: "retro", f: "y" })
-    avatar5element.src = gravatar.url(email, { protocol: 'https', d: "robohash", f: "y" })
-
-    $("#grav1").attr("src", avatar1element.src);
-    $("#grav2").attr("src", avatar2element.src);
-    $("#grav3").attr("src", avatar3element.src);
-    $("#grav4").attr("src", avatar4element.src);
-    $("#grav5").attr("src", avatar5element.src);
-   
+    $.post("api/grav/", { "email": email }, (reply) => {
+      $("#grav1").attr("src", reply.av1 + "&s=100");
+      $("#grav2").attr("src", reply.av2 + "&s=100");
+      $("#grav3").attr("src", reply.av3 + "&s=100");
+      $("#grav4").attr("src", reply.av4 + "&s=100");
+      $("#grav5").attr("src", reply.av5 + "&s=100");
+    })
   });
+
+  $(".avChoice").on("click", function (event) {
+    $(".avActive").removeClass("avActive");
+    $(this).addClass("avActive")
+  })
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", function (event) {
     event.preventDefault();
+    let selIcon = $(".avActive").attr("src")
     var userData = {
       username: userInput.val().trim(),
       email: emailInput.val().trim(),
       password: passwordInput.val().trim(),
-      avatar: gravatar.url(user.email, { protocol: "https", d: avatarInput }),
+      avatar: selIcon.slice(0, -6),
     };
     if (!userData.username || !userData.email || !userData.password) {
       return;
@@ -43,7 +47,7 @@ $(document).ready(function () {
   });
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(email, password) {
+  function signUpUser(userData) {
     $.post("/api/signup", userData)
       .then(function (data) {
         window.location.replace("/dashboard.js");
