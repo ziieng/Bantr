@@ -18,8 +18,8 @@ html {
 }
 
 form {
-  width: 100vw;
-  height: 100%;
+  /* width: 100vw;
+  height: 100%; */
   position: relative;
 }
 
@@ -27,7 +27,7 @@ form {
   background-image: url("./img/loginBG3.png") !important;
 }
 
-#signupBG {
+.signupBG {
   background-image: url("./img/loginBG3.png") !important;
 }
 
@@ -181,6 +181,19 @@ img {
   to {
     background-color: #e7bc0d;
   }
+}
+
+/* Classes for avatar selection */
+.avChoice {
+  width: 130px;
+  height: 130px;
+  background-color: #164050;
+  align-items: center;
+  justify-content: center;
+}
+
+.avActive {
+  background-color: #F45A01;
 }
 
 #bantrAppsignup {
