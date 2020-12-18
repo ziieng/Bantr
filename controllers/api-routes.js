@@ -56,25 +56,17 @@ let stuff = async function (app) {
     }
   });
 
+  // A redirect bc zii keeps typing the wrong address
+  app.get("/dash", function (req, res) {
+    res.status(307).redirect("/dashboard")
+  });
+
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/dashboard", isAuthenticated, async function (req, res) {
-    let buds = await db.Buds.findAll({
-      include: { model: db.User, as: "addressee", required: true, attributes: ["username", "avatar"] },
-      where: { UserId: req.user.id }
-    })
-    // if (buds = "[]") {
-    //   console.log("empty")
-    // }
-    console.log(buds[0].addressee)
-    let budList = []
-    let budDetails = []
-    for (line of buds) {
-      budList.push(line.addresseeId)
-      budDetails.push(line.addressee.dataValues)
-    }
+    let { budList, budDetails } = await budLister(req.user)
     let posts = await postLister(budList)
-    res.render("dashboard", { buds: budDetails, buzzes: posts });
+    res.render("dashboard", { buds: budDetails, buzz: posts });
   });
 
   //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
@@ -122,6 +114,23 @@ async function postLister(whereId) {
     })
   }
   return postData
+}
+
+async function budLister(user) {
+  let buds = await db.Buds.findAll({
+    include: { model: db.User, as: "addressee", required: true, attributes: ["username", "avatar"] },
+    where: { UserId: user.id }
+  })
+  // if (buds = "[]") {
+  //   console.log("empty")
+  // }
+  let budList = []
+  let budDetails = []
+  for (line of buds) {
+    budList.push(line.addresseeId)
+    budDetails.push(line.addressee.dataValues)
+  }
+  return { budList: budList, budDetails: budDetails }
 }
 
 module.exports = stuff
