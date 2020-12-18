@@ -194,14 +194,14 @@ img {
 
 .avActive {
   background-color: #F45A01;
-}\
+}
 #post{
   width: 275px;
   height: 136px;
 }
 #posts{
   background-color: #008F47;
-  color:white;\
+  color:white;}
 
 #bantrAppsignup {
   width: 100%;
@@ -211,6 +211,7 @@ img {
   animation-duration: 10s;
   /* animation-direction: alternate-reverse; */
 }
+
 @keyframes bantrAppsignup {
   from {
     background-color: white;
