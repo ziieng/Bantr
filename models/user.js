@@ -39,7 +39,6 @@ module.exports = function (sequelize, DataTypes) {
     User.hasMany(models.Buzz, {
       onDelete: "cascade"
     });
-    User.belongsToMany(User, { as: "UserId", through: "Buds" });
     User.belongsToMany(User, { as: "addressee", through: "Buds" });
   };
 
