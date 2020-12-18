@@ -23,16 +23,4 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/dash", isAuthenticated, function(req, res) {
-    let buds = db.Buds.findAll(
-      //where follow request = this user
-    )
-    let posts = db.Buzz.findAll(
-      //where UserId is IN buds.id (from above)
-    )
-    res.render("dashboard", { buds: buds, buzzes: posts });
-  });
-
 };

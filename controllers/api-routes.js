@@ -2,8 +2,12 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const gravatar = require("gravatar")
+const { Op } = require("sequelize");
 
-module.exports = function (app) {
+// Requiring our custom middleware for checking if a user is logged in
+var isAuthenticated = require("../config/middleware/isAuthenticated");
+
+let stuff = async function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -51,6 +55,28 @@ module.exports = function (app) {
     }
   });
 
+  // Here we've add our isAuthenticated middleware to this route.
+  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  app.get("/dashboard", isAuthenticated, async function (req, res) {
+    let buds = await db.Buds.findAll({
+      where: { requester_id: req.user.id }
+    })
+    // if (buds = "[]") {
+    //   console.log("empty")
+    // }
+    console.log(buds)
+    let budList = []
+    for (line of buds) {
+      budList.push(parseInt(line.addressee_id))
+    }
+    console.log(budList)
+    let posts = await db.Buzz.findAll({
+      where: { UserId: budList }
+    })
+    console.log(posts)
+    res.render("dashboard", { buds: buds, buzzes: posts });
+  });
+
   //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
   app.post("/api/buzz/", function (req, res) {
     users.create(["body", "reply_to", "userId"], [req.body.body, req.body.reply,
@@ -74,3 +100,5 @@ module.exports = function (app) {
   });
 
 }
+
+module.exports = stuff
