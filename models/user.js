@@ -39,6 +39,8 @@ module.exports = function (sequelize, DataTypes) {
     User.hasMany(models.Buzz, {
       onDelete: "cascade"
     });
+    User.belongsToMany(User, { as: "UserId", through: "Buds" });
+    User.belongsToMany(User, { as: "addressee", through: "Buds" });
   };
 
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database

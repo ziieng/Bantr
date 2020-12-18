@@ -59,24 +59,27 @@ let stuff = async function (app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/dashboard", isAuthenticated, async function (req, res) {
     let buds = await db.Buds.findAll({
-      // include: { User },
-      where: { requester_id: req.user.id }
+      include: { model: db.User, as: "addressee", required: true, attributes: ["username", "avatar"] },
+      where: { UserId: req.user.id }
     })
     // if (buds = "[]") {
     //   console.log("empty")
     // }
-    console.log(buds)
+    console.log(buds[0].addressee)
     let budList = []
+    let budDetails = []
     for (line of buds) {
-      budList.push(parseInt(line.addressee_id))
+      budList.push(line.addresseeId)
+      budDetails.push(line.addressee.dataValues)
     }
     console.log(budList)
+    console.log(budDetails)
     let posts = await db.Buzz.findAll({
       // include: { model: User },
       where: { UserId: budList }
     })
-    console.log(posts)
-    res.render("dashboard", { buds: buds, buzzes: posts });
+    // console.log(posts)
+    res.render("dashboard", { buds: budDetails, buzzes: posts });
   });
 
   //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
