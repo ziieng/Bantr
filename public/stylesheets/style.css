@@ -103,7 +103,10 @@ img {
   background-color: #F45A01;
   color:white;
 }
-
+#post{
+  width: 275px;
+  height: 136px;
+}
 #posts{
   background-color: #008F47;
   color:white;
