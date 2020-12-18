@@ -7,12 +7,12 @@
     <!--Column 1-->
     <div class="col-md-6">
       <div class="container">
-        <h1>Followers</h1>
+        <h1>Following</h1>
         <ul class="list-group">
           {{#each buds}}
           <div class="alert alert-info" id="chats1">
-            <img src="{{avatar}}">
-            {{dataValues.addressee_id}}
+            <a href="/users/{{username}}"><img src="{{avatar}}">
+              <strong>@{{username}}</strong></a>
           </div>
           {{/each}}
         </ul>
@@ -22,12 +22,13 @@
     <!-- Column 2 -->
     <div class="col-md-6">
       <div class="container">
-        <h1>Following</h1>
+        <h1>Posts</h1>
         <ul class="list-group">
-          {{#each buzzes}}
+          {{#each buzz}}
           <div class="alert alert-info" id="chats2">
-            {{dataValues.UserId}}
-            {{dataValues.body}}
+            <a href="/users/{{username}}"><img src="{{avatar}}">
+              <strong>@{{username}}</strong></a><br>
+            {{body}}
           </div>
           {{/each}}
         </ul>
