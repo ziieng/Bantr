@@ -6,8 +6,17 @@ form.login {
   float: left;
 }
 
-html,
-body,
+body
+{
+  width: 100vw;
+  height: 100vh;
+}
+
+html {
+  width: 100vw;
+  height: auto;
+}
+
 form {
   width: 100vw;
   height: 100%;
@@ -15,17 +24,20 @@ form {
 }
 
 #loginBG {
-  background-image: url("./img/loginBG2.jpg");
+  background-image: url("./img/loginBG3.png") !important;
 }
-/* #signupBG {
-  background-image: url("./img/loginBG2.jpg");
-} */
+
+#signupBG {
+  background-image: url("./img/loginBG3.png") !important;
+}
 
 #avatars {
   margin-top: 30px;
-  margin-bottom: 20%;
-  background-color: white;
+  margin-bottom: 30% !important;
+  background-color: #e7bb0dc7;
   width: 50%;
+  height: auto !important;
+  padding-bottom: 20px;
   clear: both;
   align-items: center;
   justify-content: center;
@@ -42,28 +54,28 @@ img {
   padding-left: 60px !important;
 }
 
-@include media-breakpoint-up(sm) {
+/* @include media-breakpoint-up(sm) {
   .fixColBL2 {
     padding-left: 0px;
   }
-}
+} */
 
 .fixRow {
   padding-left: 0px !important;
-  padding-right: 0px !important;
+  padding-right: 20px !important;
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
 .log-in {
-  background-color: #f5d452;
+  background-color: #480052;
   width: 400px;
   height: 400px;
   margin: 50px;
   padding: 50px;
 }
 
-.loginV2 {
-  background-color: #6d027bd3;
+.styleForm {
+  background-color: #480052;
   margin-top: 10%;
   width: auto;
   height: auto;
@@ -72,44 +84,151 @@ img {
   justify-content: center;
 }
 
-.contStyle {
+.sigunForm {
+  background-color: #480052;
+  margin-top: 10%;
+  width: auto;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.formFix {
+  padding: 10px !important;
+}
+
+.formFixButton {
+  background-color: #1b4e5f !important;
+  padding: 5px 15px !important;
+  margin-top: 15px !important;
+  color: white !important;
+}
+
+.contSignup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+}
 .bantr {
   text-align: center;
 }
 
-.list-group{
-  background-color:white;
+.list-group {
+  background-color: white;
 }
 
-.navbar{
-  background-color:#480052
+.navbarStyle {
+  background-color: #480052 !important;
+  color: #f45a01 !important;
+  text-align: center;
 }
 
-#nav-heading{
-  color: #E7BC0D
+.buds-container {
+  background-color: #480052 !important;
+  
+  width: 80% !important;
+  height: auto;
+  margin-top: 10%;
+  padding: 20px;
+  color: white;
+  clear: both;
+  text-align: center;
 }
 
-#chats1{
- background-color: #164050;
- color:white;
+#chats1 {
+  background-color: #164050;
+  color: white;
 }
 
-#chats2{
-  background-color: #F45A01;
-  color:white;
+#chats2 {
+  background-color: #f45a01;
+  color: white;
 }
 
-#posts{
-  background-color: #008F47;
-  color:white;
+#posts {
+  background-color: #008f47;
+  color: white;
 }
 
-#friends-list{
-  background-color:#164050;
-  color:#F45A01;
+#friends-list {
+  background-color: #164050;
+  color: #f45a01;
+}
+
+/* ANIMATIONS */
+
+.bantrApplogin {
+  width: 400px;
+  height: 400px;
+  background-color: #e7bc0d;
+  animation-name: bantrAppLogin;
+  animation-duration: 3s;
+  /* animation-direction: alternate-reverse; */
+  /* animation-iteration-count: infinite; */
+}
+@keyframes bantrAppLogin {
+  from {
+    background-color: #6c007b;
+  }
+  to {
+    background-color: #e7bc0d;
+  }
+}
+
+#bantrAppsignup {
+  width: 100%;
+  height: 100%;
+  background-color: #480052;
+  animation-name: bantrAppsignup;
+  animation-duration: 10s;
+  /* animation-direction: alternate-reverse; */
+}
+@keyframes bantrAppsignup {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: #6c007b;
+  }
+}
+
+.bantrTitle {
+  width: 100px;
+  height: 50px;
+  font-weight: bold;
+  position: relative;
+  animation: bantrTitle 5s infinite;
+}
+
+#div1 {
+  animation-timing-function: linear;
+}
+#div2 {
+  animation-timing-function: ease;
+}
+#div3 {
+  animation-timing-function: ease-in;
+}
+#div4 {
+  animation-timing-function: ease-out;
+}
+#div5 {
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes bantrTitle {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 300px;
+  }
 }
