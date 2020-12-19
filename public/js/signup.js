@@ -50,7 +50,7 @@ $(document).ready(function () {
   function signUpUser(userData) {
     $.post("/api/signup", userData)
       .then(function (data) {
-        window.location.replace("/dashboard.js");
+        window.location.replace("/dashboard");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
