@@ -1,0 +1,75 @@
+<body>
+    <div class="container">
+        <nav class="navbar  navbarStyle justify-content-center " style="background-color: #480052;">
+            <a class="navbar-brand navbarStyle " href="#"><b class="n1 nav1">b</b><b class="n2 nav2">u</b><b
+                    class="nav3 n3">z</b><b class="nav4 n4">z</b><b class="nav5 n5">i</b><b class="nav2 n2">n</b><b class="nav4 n4">g</b></a>
+        </nav>
+    </div>
+
+    <!--Container -->
+    <div class="container contUser">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="row">
+                    <div class="card profilePhoto">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <img src="{{user.avatar}}" class="card-img-top" alt="avatar">
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{user.username}}</h5>
+                                    <p class="card-text">I like long walks on the beach.</p>
+                                    <a href="#" style="background-color:#480552;" class="btn btn-primary p-1" data-id="{{user.id}}">add bud</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <h4>my buds</h4>
+                    <ul class="list-group" style="width:250px">
+                        {{#each buds}}
+                        {{> bud-block}}
+                        {{!-- <div class="row">
+                            <div class="card friendsProfile">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <img src="{{this.avatar}}" class="card-img-top" alt="avatar">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card-body friendsButton">
+                                            <h6 class="card-title">{{this.name}}</h6>
+
+                                            <a href="#" style="background-color:#480552;"
+                                                class="btn btn-primary p-1">buzz me</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> --}}
+                            {{/each}}
+                        </div>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <!-- Column 2 -->
+            <div class="col-md-6">
+
+                <ul class="list-group">
+                    {{#each buzz}}
+                    {{> buzz-block}}
+                    {{/each}}
+                </ul>
+
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+
+</body>

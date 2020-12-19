@@ -1,0 +1,82 @@
+<body >
+  <div class="container">
+  <nav class="navbar navbarStyle justify-content-center " style="background-color: #480052;">
+    <a class="navbar-brand navbarStyle " href="#">my buds</a>
+  </nav>
+</div>
+  <!--Container -->
+  <div class="container buds-container" >
+    <div class="row">
+      <!--Column 1-->
+
+      <div class="col-md-6">
+        <h2>followers</h2>
+        <ul class="list-group">
+          {{#each followers}}
+          <!-- changed these elements FROM DIV -->
+          <p class="alert alert-info" id="chats1">
+            {{this.followers}}
+          </p>
+          {{/each}}
+        </ul>
+      </div>
+      <!-- Column 2 -->
+      <div class="col-md-6">
+        <h2>following</h2>
+        <ul class="list-group">
+          {{#each following}}
+          <!-- changed these elements FROM DIV -->
+          <p class="alert alert-info" id="chats2">
+            {{this.following}}
+          </p>
+<nav class="navbar">
+  <span class="navbar-brand mb-0 h1" id="nav-heading">Chat Exchanges</span>
+</nav>
+<!--Container -->
+<div class="container" style="margin:100px;align-items: center;">
+  <div class="row">
+    <!--Column 1-->
+    <div class="col-md-6">
+      <div class="container">
+        <h1>Followers</h1>
+        <ul class="list-group">
+          {{#each followers}}
+          <div class="alert alert-info" id="chats1">
+            {{this.followers}}
+          </div>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Column 2 -->
+    <div class="col-md-6">
+      <div class="container">
+        <h1>Following</h1>
+        <ul class="list-group">
+          {{#each following}}
+          <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+          {{!-- <div class="alert alert-info" id="chats2">
+             {{this.following}}
+          </div>  --}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/login.js"></script>
+</body>
+
+</html>

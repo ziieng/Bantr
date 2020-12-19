@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+}
+form.signup,
+form.login {
+  float: left;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+html {
+  width: 100vw;
+  height: auto;
+}
+
+#loginBG {
+  background-image: url("./img/loginBG3.png") !important;
+}
+
+img {
+  padding: 20px;
+}
+
+.fixCol {
+  padding-left: 0px !important;
+}
+#fixColBL {
+  padding-left: 60px !important;
+}
+
+.fixRow {
+  padding-left: 0px !important;
+  padding-right: 20px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.log-in {
+  background-color: #480052;
+  width: 400px;
+  height: 400px;
+  margin: 50px;
+  padding: 50px;
+}
+
+.styleForm {
+  background-color: #480052;
+  margin-top: 10%;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formFix {
+  padding: 10px !important;
+}
+
+.formFixButton {
+  background-color: #1b4e5f !important;
+  padding: 5px 15px !important;
+  margin-top: 15px !important;
+  color: white !important;
+}
+
+.contLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.contUser {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+}
+.bantr {
+  text-align: center;
+}
+
+.list-group {
+  background-color: white;
+}
+
+.navbarStyle {
+  background-color: #480052 !important;
+  color: #f45a01 !important;
+  text-align: center;
+}
+
+/* LOGIN ANIMATIONS */
+
+.bantrApplogin {
+  width: 400px;
+  height: 400px;
+  background-color: #e7bc0d;
+  animation-name: bantrAppLogin;
+  animation-duration: 5s;
+}
+@keyframes bantrAppLogin {
+  from {
+    background-color: #6c007b;
+  }
+  to {
+    background-color: #e7bc0d;
+  }
+}
+
+/* Classes for avatar selection */
+.avChoice {
+  width: 130px;
+  height: 130px;
+  background-color: #164050;
+  align-items: center;
+  justify-content: center;
+}
+
+.avActive {
+  background-color: #f45a01;
+}
+#post{
+  width: 275px;
+  height: 136px;
+}
+#posts{
+  background-color: #008F47;
+  color:white;}
+
+#bantrAppsignup {
+  width: 100%;
+  height: 100%;
+  background-color: #480052;
+  animation-name: bantrAppsignup;
+  animation-duration: 10s;
+  /* animation-direction: alternate-reverse; */
+}
+
+@keyframes bantrAppsignup {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: #6c007b;
+  }
+}
+
+/* BUDS LIST */
+.buds-container {
+  background-color: #480052 !important;
+
+  width: 80% !important;
+  height: auto;
+  margin-top: 10%;
+  padding: 20px;
+  color: white;
+  clear: both;
+  text-align: center;
+}
+
+#chats1 {
+  background-color: #164050;
+  color: white;
+}
+
+#chats2 {
+  background-color: #f45a01;
+  color: white;
+}
+
+#posts {
+  background-color: #008f47;
+  color: white;
+}
+
+#friends-list {
+  background-color: #164050;
+  color: #f45a01;
+}
+/* USERPROFILE */
+.btnFix {
+  padding: 1px !important;
+}
+
+.profilePhoto {
+  width: auto !important;
+  height: auto !important;
+  padding: 1px;
+}
+
+.friendsProfile {
+  width: auto;
+  height: auto;
+}
+
+.friendsButton {
+  padding: 0px !important;
+}
+
+/* animation */
+
+.nav1{
+  font-weight: bold;
+  position: relative;
+  animation: n1 3s;
+}
+.n1 {animation-timing-function: linear;}
+@keyframes n1 {
+  from {top: 0px;}
+  to {left: 300px;}
+} 
+.nav2{
+  font-weight: bold;
+  position: relative;
+  animation: n2 3s;
+}
+.n2 {animation-timing-function: ease;}
+@keyframes n2 {
+  from {top: 0px;}
+  to {right: 300px;}
+} 
+
+.nav3{
+  font-weight: bold;
+  position: relative;
+  animation: n3 3s;
+}
+.n3 {animation-timing-function: ease-in;}
+@keyframes n3 {
+  from {top: 0px;}
+  to {bottom: 20px;}
+} 
+.nav4{
+  font-weight: bold;
+  position: relative;
+  animation: n4 3s;
+}
+.n4 {animation-timing-function: ease-out;}
+
+@keyframes n4 {
+  from {top: 0px;}
+  to {top: 20px;} 
+} 
+.nav5{
+  font-weight: bold;
+  position: relative;
+  animation: n5 3s;
+}
+.n5 {animation-timing-function: ease-in-out;}
+@keyframes n5 {
+  from {top: 0px;}
+  to {right: 100px;} 
+} 
