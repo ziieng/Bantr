@@ -11,6 +11,10 @@ body {
   height: 100vh;
 }
 
+.bodyBackground{
+  background-color: #e7bc0d;
+}
+
 html {
   width: 100vw;
   height: auto;
@@ -75,10 +79,21 @@ img {
 }
 
 .contUser {
-  display: flex;
+  width: auto;
+  height: auto;
   align-items: center;
   justify-content: center;
   margin-top: 5%;
+}
+
+.rowFix {
+  width: 90% !important;
+  --bs-gutter-x: 3.5rem !important;
+  margin-left: 0px!important;
+}
+
+.rowFix2 {
+float: left;
 }
 .bantr {
   text-align: center;
@@ -92,8 +107,20 @@ img {
   background-color: #480052 !important;
   color: #f45a01 !important;
   text-align: center;
+  font-size: 60px !important;
+  font-family: 'Kalam', cursive;;
+  padding-top: 0px;
+  padding-bottom: 0x;
 }
 
+.navbar{
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+/* font-family: 'Caveat', cursive;
+font-family: 'Patrick Hand', cursive;
+font-family: 'Sedgwick Ave', cursive; */
 /* LOGIN ANIMATIONS */
 
 .bantrApplogin {
@@ -150,7 +177,7 @@ img {
   }
 }
 
-/* BUDS LIST */
+/* BUDS LIST ______________________ */
 .buds-container {
   background-color: #480052 !important;
 
@@ -163,12 +190,14 @@ img {
   text-align: center;
 }
 
-#chats1 {
+/* changed from chats1 */
+.follower {
   background-color: #164050;
   color: white;
 }
 
-#chats2 {
+/* changed from chats2 */
+.following {
   background-color: #f45a01;
   color: white;
 }
@@ -182,7 +211,7 @@ img {
   background-color: #164050;
   color: #f45a01;
 }
-/* USERPROFILE */
+/* USERPROFILE _________________*/
 .btnFix {
   padding: 1px !important;
 }
@@ -202,7 +231,7 @@ img {
   padding: 0px !important;
 }
 
-/* animation */
+/* animation NAV________________ */
 
 .nav1{
   font-weight: bold;
