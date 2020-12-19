@@ -6,8 +6,7 @@ form.login {
   float: left;
 }
 
-body
-{
+body {
   width: 100vw;
   height: 100vh;
 }
@@ -17,30 +16,8 @@ html {
   height: auto;
 }
 
-form {
-  /* width: 100vw;
-  height: 100%; */
-  position: relative;
-}
-
 #loginBG {
   background-image: url("./img/loginBG3.png") !important;
-}
-
-.signupBG {
-  background-image: url("./img/loginBG3.png") !important;
-}
-
-#avatars {
-  margin-top: 30px;
-  margin-bottom: 30% !important;
-  background-color: #e7bb0dc7;
-  width: 50%;
-  height: auto !important;
-  padding-bottom: 20px;
-  clear: both;
-  align-items: center;
-  justify-content: center;
 }
 
 img {
@@ -54,18 +31,13 @@ img {
   padding-left: 60px !important;
 }
 
-/* @include media-breakpoint-up(sm) {
-  .fixColBL2 {
-    padding-left: 0px;
-  }
-} */
-
 .fixRow {
   padding-left: 0px !important;
   padding-right: 20px !important;
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
+
 .log-in {
   background-color: #480052;
   width: 400px;
@@ -75,16 +47,6 @@ img {
 }
 
 .styleForm {
-  background-color: #480052;
-  margin-top: 10%;
-  width: auto;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sigunForm {
   background-color: #480052;
   margin-top: 10%;
   width: auto;
@@ -105,17 +67,18 @@ img {
   color: white !important;
 }
 
-.contSignup {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .contLogin {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 10%;
+}
+
+.contUser {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
 }
 .bantr {
   text-align: center;
@@ -131,9 +94,58 @@ img {
   text-align: center;
 }
 
+/* LOGIN ANIMATIONS */
+
+.bantrApplogin {
+  width: 400px;
+  height: 400px;
+  background-color: #e7bc0d;
+  animation-name: bantrAppLogin;
+  animation-duration: 5s;
+}
+@keyframes bantrAppLogin {
+  from {
+    background-color: #6c007b;
+  }
+  to {
+    background-color: #e7bc0d;
+  }
+}
+
+/* Classes for avatar selection */
+.avChoice {
+  width: 130px;
+  height: 130px;
+  background-color: #164050;
+  align-items: center;
+  justify-content: center;
+}
+
+.avActive {
+  background-color: #f45a01;
+}
+
+#bantrAppsignup {
+  width: 100%;
+  height: 100%;
+  background-color: #480052;
+  animation-name: bantrAppsignup;
+  animation-duration: 10s;
+  /* animation-direction: alternate-reverse; */
+}
+@keyframes bantrAppsignup {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: #6c007b;
+  }
+}
+
+/* BUDS LIST */
 .buds-container {
   background-color: #480052 !important;
-  
+
   width: 80% !important;
   height: auto;
   margin-top: 10%;
@@ -162,86 +174,22 @@ img {
   background-color: #164050;
   color: #f45a01;
 }
-
-/* ANIMATIONS */
-
-.bantrApplogin {
-  width: 400px;
-  height: 400px;
-  background-color: #e7bc0d;
-  animation-name: bantrAppLogin;
-  animation-duration: 3s;
-  /* animation-direction: alternate-reverse; */
-  /* animation-iteration-count: infinite; */
-}
-@keyframes bantrAppLogin {
-  from {
-    background-color: #6c007b;
-  }
-  to {
-    background-color: #e7bc0d;
-  }
+/* USERPROFILE */
+.btnFix {
+  padding: 1px !important;
 }
 
-/* Classes for avatar selection */
-.avChoice {
-  width: 130px;
-  height: 130px;
-  background-color: #164050;
-  align-items: center;
-  justify-content: center;
+.profilePhoto {
+  width: auto !important;
+  height: auto !important;
+  padding: 1px;
 }
 
-.avActive {
-  background-color: #F45A01;
+.friendsProfile {
+  width: auto;
+  height: auto;
 }
 
-#bantrAppsignup {
-  width: 100%;
-  height: 100%;
-  background-color: #480052;
-  animation-name: bantrAppsignup;
-  animation-duration: 10s;
-  /* animation-direction: alternate-reverse; */
-}
-@keyframes bantrAppsignup {
-  from {
-    background-color: white;
-  }
-  to {
-    background-color: #6c007b;
-  }
-}
-
-.bantrTitle {
-  width: 100px;
-  height: 50px;
-  font-weight: bold;
-  position: relative;
-  animation: bantrTitle 5s infinite;
-}
-
-#div1 {
-  animation-timing-function: linear;
-}
-#div2 {
-  animation-timing-function: ease;
-}
-#div3 {
-  animation-timing-function: ease-in;
-}
-#div4 {
-  animation-timing-function: ease-out;
-}
-#div5 {
-  animation-timing-function: ease-in-out;
-}
-
-@keyframes bantrTitle {
-  from {
-    left: 0px;
-  }
-  to {
-    left: 300px;
-  }
+.friendsButton {
+  padding: 0px !important;
 }
