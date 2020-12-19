@@ -6,14 +6,18 @@
   <div class="row">
     <!--Column 1-->
     <div class="col-md-6">
+      <div class="row mb-3" id="post">
+        <div class="input-group mb-3">
+          <input type="textarea" class="form-control" rows="3" placeholder="What's on your mind?"
+            aria-label="What's on your mind?" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Post</button>
+        </div>
+      </div>
       <div class="container">
-        <h1>Following</h1>
-        <ul class="list-group">
+        <h4>Your Buds</h1>
+          <ul class="list-group" id="friends-list">
           {{#each buds}}
-          <div class="alert alert-info" id="chats1">
-            <a href="/users/{{username}}"><img src="{{avatar}}">
-              <strong>@{{username}}</strong></a>
-          </div>
+          {{> bud-block}}
           {{/each}}
         </ul>
       </div>
@@ -25,11 +29,7 @@
         <h1>Posts</h1>
         <ul class="list-group">
           {{#each buzz}}
-          <div class="alert alert-info" id="chats2">
-            <a href="/users/{{username}}"><img src="{{avatar}}">
-              <strong>@{{username}}</strong></a><br>
-            {{body}}
-          </div>
+          {{> buzz-block}}
           {{/each}}
         </ul>
       </div>

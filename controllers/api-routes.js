@@ -108,6 +108,7 @@ async function postLister(whereId) {
     postData.push({
       body: line.dataValues.body,
       reply: line.dataValues.reply_to,
+      buzzId: line.dataValues.id,
       created: line.dataValues.createdAt,
       username: line.User.dataValues.username,
       avatar: line.User.dataValues.avatar
