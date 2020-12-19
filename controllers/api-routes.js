@@ -2,13 +2,11 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const gravatar = require("gravatar")
-const { Op } = require("sequelize");
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
-const user = require("../models/user");
 
-let stuff = async function (app) {
+module.exports = async function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -42,18 +40,15 @@ let stuff = async function (app) {
 
 
   // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function (req, res) {
-    if (!req.user) {
-      // The user is not logged in, send back an empty object
-      res.json({});
-    } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
-      res.json({
-        email: req.user.email,
-        id: req.user.id
-      });
-    }
+  app.get("/users/:username", async function (req, res) {
+    let username = req.params.username
+    let userDetail = await userDetails(username)
+    // if (userDetail.id = req.user.id) {
+    //   console.log("it u")
+    // }
+    let { budList, budDetails } = await budLister({ from: userDetail.id })
+    let posts = await postLister(userDetail.id)
+    res.render("userprofile", { user: userDetail, buzz: posts, buds: budDetails })
   });
 
   // A redirect bc zii keeps typing the wrong address
@@ -70,8 +65,8 @@ let stuff = async function (app) {
   });
 
   //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
-  app.post("/api/buzz/", function (req, res) {
-    users.create(["body", "reply_to", "userId"], [req.body.body, req.body.reply,
+  app.post("/api/buzz/", isAuthenticated, function (req, res) {
+    db.Buzz.create(["body", "reply_to", "userId"], [req.body.body, req.body.reply,
     req.user.id], function (result) {
       // Send back the ID of the new buzz, for fun
       res.json({ id: result.insertId });
@@ -91,6 +86,16 @@ let stuff = async function (app) {
     res.json(list)
   });
 
+}
+
+async function userDetails(username) {
+  let user = await db.User.findOne({
+    where: { username: username },
+    attributes: { exclude: ["password"] }
+  })
+  console.log(user)
+  let userDetail = user.dataValues
+  return userDetail
 }
 
 async function postLister(whereId) {
@@ -154,5 +159,3 @@ async function budLister(ref) {
   // }
   return { budList: budList, budDetails: budDetails }
 }
-
-module.exports = stuff
