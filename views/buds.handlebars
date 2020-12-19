@@ -15,6 +15,7 @@
         <ul class="list-group">
           {{#each followers}}
           <!-- changed these elements FROM DIV -->
+          {{> bud-block}}
           <p class="alert alert-info" id="chats1">
             {{this.followers}}
           </p>
@@ -26,6 +27,7 @@
         <h2>following</h2>
         <ul class="list-group">
           {{#each following}}
+          {{> bud-block}}
           <!-- changed these elements FROM DIV -->
           <p class="alert alert-info" id="chats2">
             {{this.following}}
