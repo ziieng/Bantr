@@ -2,8 +2,13 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const gravatar = require("gravatar")
+const { Op } = require("sequelize");
 
-module.exports = function (app) {
+// Requiring our custom middleware for checking if a user is logged in
+var isAuthenticated = require("../config/middleware/isAuthenticated");
+const user = require("../models/user");
+
+let stuff = async function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -51,11 +56,24 @@ module.exports = function (app) {
     }
   });
 
+  // A redirect bc zii keeps typing the wrong address
+  app.get("/dash", function (req, res) {
+    res.status(307).redirect("/dashboard")
+  });
+
+  // Here we've add our isAuthenticated middleware to this route.
+  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  app.get("/dashboard", isAuthenticated, async function (req, res) {
+    let { budList, budDetails } = await budLister({ from: req.user.id })
+    let posts = await postLister(budList)
+    res.render("dashboard", { buds: budDetails, buzz: posts });
+  });
+
   //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
   app.post("/api/buzz/", function (req, res) {
     users.create(["body", "reply_to", "userId"], [req.body.body, req.body.reply,
     req.user.id], function (result) {
-      // Send back the ID of the new buzz
+      // Send back the ID of the new buzz, for fun
       res.json({ id: result.insertId });
     });
   });
@@ -74,3 +92,66 @@ module.exports = function (app) {
   });
 
 }
+
+async function postLister(whereId) {
+  let posts = await db.Buzz.findAll({
+    include: {
+      model: db.User,
+      required: true,
+      attributes: ["username", "avatar"]
+    },
+    where: { UserId: whereId }
+  })
+  console.log(posts[0])
+  let postData = []
+  for (line of posts) {
+    postData.push({
+      body: line.dataValues.body,
+      reply: line.dataValues.reply_to,
+      created: line.dataValues.createdAt,
+      username: line.User.dataValues.username,
+      avatar: line.User.dataValues.avatar
+    })
+  }
+  return postData
+}
+
+async function budLister(ref) {
+  let buds = []
+  let budList = []
+  let budDetails = []
+  if (ref.from) {
+    //query for "followed by X"
+    buds = await db.Buds.findAll({
+      include: { model: db.User, as: "addressee", required: true, attributes: ["username", "avatar"] },
+      where: { UserId: ref.from }
+    })
+    for (line of buds) {
+      budList.push(line.addresseeId)
+      budDetails.push(line.addressee.dataValues)
+    }
+  } else if (ref.to) {
+    //query for "all following X"
+    buds = await db.Buds.findAll({
+      attributes: ["UserId"],
+      where: { addresseeId: ref.to }
+    })
+    console.log(buds)
+    for (line of buds) {
+      budList.push(line.UserId)
+    }
+    buds = await db.User.findAll({
+      attributes: ["username", "avatar"],
+      where: { id: budList },
+    })
+    for (line of buds) {
+      budDetails.push(line.dataValues)
+    }
+  }
+  // if (buds = "[]") {
+  //   console.log("empty")
+  // }
+  return { budList: budList, budDetails: budDetails }
+}
+
+module.exports = stuff

@@ -1,96 +1,56 @@
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (1, 60, 40, '2020-07-03 13:45:20', '2020-07-03 13:45:20');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (2, 47, 12, '2020-06-14 04:41:13', '2020-06-14 04:41:13');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (3, 40, 55, '2020-06-25 14:33:31', '2020-06-25 14:33:31');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (4, 7, 18, '2020-06-30 03:26:32', '2020-06-30 03:26:32');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (5, 68, 53, '2020-07-08 21:33:10', '2020-07-08 21:33:10');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (6, 51, 7, '2020-07-12 11:08:58', '2020-07-12 11:08:58');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (7, 14, 56, '2020-07-02 09:23:08', '2020-07-02 09:23:08');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (8, 40, 29, '2020-07-14 03:53:24', '2020-07-14 03:53:24');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (9, 38, 73, '2020-06-26 08:46:28', '2020-06-26 08:46:28');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (10, 77, 61, '2020-06-28 10:55:37', '2020-06-28 10:55:37');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (11, 21, 47, '2020-06-22 03:03:22', '2020-06-22 03:03:22');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (12, 17, 12, '2020-06-18 00:27:11', '2020-06-18 00:27:11');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (13, 23, 9, '2020-06-23 07:02:16', '2020-06-23 07:02:16');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (14, 50, 51, '2020-06-14 11:14:09', '2020-06-14 11:14:09');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (15, 5, 28, '2020-07-06 23:05:18', '2020-07-06 23:05:18');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (16, 50, 71, '2020-06-13 14:48:24', '2020-06-13 14:48:24');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (17, 17, 33, '2020-07-12 05:33:54', '2020-07-12 05:33:54');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (18, 66, 60, '2020-06-21 07:30:10', '2020-06-21 07:30:10');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (19, 64, 12, '2020-06-16 14:17:33', '2020-06-16 14:17:33');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (20, 21, 4, '2020-07-13 00:48:55', '2020-07-13 00:48:55');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (21, 64, 72, '2020-07-01 05:58:07', '2020-07-01 05:58:07');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (22, 59, 76, '2020-07-09 02:52:49', '2020-07-09 02:52:49');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (23, 47, 9, '2020-07-03 16:05:54', '2020-07-03 16:05:54');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (24, 49, 68, '2020-07-04 21:56:19', '2020-07-04 21:56:19');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (25, 6, 59, '2020-06-28 20:28:45', '2020-06-28 20:28:45');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (26, 27, 40, '2020-06-26 18:53:35', '2020-06-26 18:53:35');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (27, 28, 57, '2020-07-11 00:34:02', '2020-07-11 00:34:02');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (28, 61, 18, '2020-06-27 16:38:28', '2020-06-27 16:38:28');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (29, 47, 1, '2020-06-30 13:59:47', '2020-06-30 13:59:47');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (30, 39, 6, '2020-07-08 11:50:42', '2020-07-08 11:50:42');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (31, 11, 21, '2020-07-08 16:43:51', '2020-07-08 16:43:51');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (32, 19, 33, '2020-06-28 23:56:46', '2020-06-28 23:56:46');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (33, 61, 49, '2020-06-13 06:18:23', '2020-06-13 06:18:23');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (34, 72, 75, '2020-06-28 12:12:29', '2020-06-28 12:12:29');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (35, 50, 25, '2020-07-05 20:34:22', '2020-07-05 20:34:22');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (36, 47, 9, '2020-06-17 11:10:59', '2020-06-17 11:10:59');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (37, 33, 21, '2020-07-06 19:04:33', '2020-07-06 19:04:33');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (38, 51, 41, '2020-06-16 07:17:01', '2020-06-16 07:17:01');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (39, 43, 37, '2020-06-21 15:27:42', '2020-06-21 15:27:42');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (40, 51, 34, '2020-06-15 01:55:15', '2020-06-15 01:55:15');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (41, 74, 13, '2020-06-28 06:56:56', '2020-06-28 06:56:56');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (42, 53, 59, '2020-07-14 03:12:56', '2020-07-14 03:12:56');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (43, 1, 63, '2020-07-03 23:37:25', '2020-07-03 23:37:25');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (44, 71, 75, '2020-06-15 22:18:53', '2020-06-15 22:18:53');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (45, 16, 70, '2020-07-11 17:56:40', '2020-07-11 17:56:40');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (46, 78, 65, '2020-07-03 21:06:42', '2020-07-03 21:06:42');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (47, 20, 80, '2020-07-03 15:56:42', '2020-07-03 15:56:42');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (48, 39, 20, '2020-06-22 15:34:17', '2020-06-22 15:34:17');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (49, 37, 61, '2020-07-13 01:19:52', '2020-07-13 01:19:52');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (50, 32, 8, '2020-07-11 07:51:28', '2020-07-11 07:51:28');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (51, 70, 14, '2020-06-30 16:04:47', '2020-06-30 16:04:47');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (52, 2, 4, '2020-06-28 06:43:41', '2020-06-28 06:43:41');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (53, 23, 13, '2020-06-23 00:15:21', '2020-06-23 00:15:21');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (54, 4, 66, '2020-07-10 21:45:28', '2020-07-10 21:45:28');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (55, 42, 18, '2020-07-02 21:40:44', '2020-07-02 21:40:44');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (56, 26, 33, '2020-07-07 20:13:26', '2020-07-07 20:13:26');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (57, 54, 5, '2020-06-15 23:52:27', '2020-06-15 23:52:27');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (58, 52, 68, '2020-06-28 14:05:21', '2020-06-28 14:05:21');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (59, 37, 68, '2020-06-25 23:37:25', '2020-06-25 23:37:25');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (60, 37, 34, '2020-06-28 04:22:30', '2020-06-28 04:22:30');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (61, 78, 33, '2020-07-12 17:10:20', '2020-07-12 17:10:20');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (62, 45, 30, '2020-06-29 04:27:40', '2020-06-29 04:27:40');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (63, 66, 33, '2020-06-14 04:32:53', '2020-06-14 04:32:53');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (64, 31, 78, '2020-07-09 00:21:20', '2020-07-09 00:21:20');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (65, 62, 78, '2020-06-13 21:43:46', '2020-06-13 21:43:46');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (66, 38, 59, '2020-06-20 19:31:44', '2020-06-20 19:31:44');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (67, 15, 51, '2020-07-08 20:12:51', '2020-07-08 20:12:51');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (68, 70, 7, '2020-06-18 21:35:46', '2020-06-18 21:35:46');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (69, 50, 13, '2020-07-02 20:11:12', '2020-07-02 20:11:12');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (70, 20, 57, '2020-06-13 05:10:50', '2020-06-13 05:10:50');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (71, 49, 70, '2020-07-08 08:51:11', '2020-07-08 08:51:11');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (72, 52, 44, '2020-07-05 22:27:31', '2020-07-05 22:27:31');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (73, 64, 20, '2020-07-11 14:04:43', '2020-07-11 14:04:43');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (74, 67, 51, '2020-07-12 15:18:57', '2020-07-12 15:18:57');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (75, 31, 47, '2020-07-13 22:23:07', '2020-07-13 22:23:07');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (76, 21, 75, '2020-06-28 16:42:30', '2020-06-28 16:42:30');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (77, 35, 53, '2020-06-24 08:31:38', '2020-06-24 08:31:38');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (78, 25, 62, '2020-06-27 22:55:14', '2020-06-27 22:55:14');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (79, 29, 20, '2020-07-09 17:16:29', '2020-07-09 17:16:29');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (80, 9, 19, '2020-07-01 08:25:19', '2020-07-01 08:25:19');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (81, 68, 9, '2020-06-22 23:00:47', '2020-06-22 23:00:47');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (82, 52, 13, '2020-07-05 05:43:45', '2020-07-05 05:43:45');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (83, 68, 6, '2020-07-12 16:06:22', '2020-07-12 16:06:22');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (84, 29, 73, '2020-07-09 03:00:55', '2020-07-09 03:00:55');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (85, 43, 23, '2020-06-14 01:43:45', '2020-06-14 01:43:45');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (86, 74, 75, '2020-07-07 22:32:28', '2020-07-07 22:32:28');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (87, 39, 41, '2020-07-09 11:23:49', '2020-07-09 11:23:49');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (88, 27, 78, '2020-06-29 10:23:21', '2020-06-29 10:23:21');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (89, 23, 52, '2020-06-19 05:02:15', '2020-06-19 05:02:15');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (90, 28, 70, '2020-07-12 09:22:43', '2020-07-12 09:22:43');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (91, 32, 18, '2020-07-04 06:09:00', '2020-07-04 06:09:00');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (92, 32, 12, '2020-07-13 03:24:54', '2020-07-13 03:24:54');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (93, 25, 76, '2020-07-05 18:29:39', '2020-07-05 18:29:39');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (94, 5, 36, '2020-07-06 03:29:11', '2020-07-06 03:29:11');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (95, 27, 27, '2020-07-08 13:11:31', '2020-07-08 13:11:31');
-insert into Buds (id, requester_id, addressee_id, createdAt, updatedAt) values (96, 6, 2, '2020-06-26 19:33:36', '2020-06-26 19:33:36');
+CREATE DATABASE  IF NOT EXISTS `bantr_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `bantr_db`;
+-- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
+--
+-- Host: localhost    Database: bantr_db
+-- ------------------------------------------------------
+-- Server version	8.0.22
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `buds`
+--
+
+DROP TABLE IF EXISTS `buds`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `buds` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `UserId` int NOT NULL,
+  `addresseeId` int NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `buds`
+--
+
+LOCK TABLES `buds` WRITE;
+/*!40000 ALTER TABLE `buds` DISABLE KEYS */;
+INSERT INTO `buds` VALUES (1,60,40,'2020-07-03 13:45:20','2020-07-03 13:45:20'),(2,21,12,'2020-06-14 04:41:13','2020-06-14 04:41:13'),(3,40,55,'2020-06-25 14:33:31','2020-06-25 14:33:31'),(4,7,18,'2020-06-30 03:26:32','2020-06-30 03:26:32'),(5,68,53,'2020-07-08 21:33:10','2020-07-08 21:33:10'),(6,51,7,'2020-07-12 11:08:58','2020-07-12 11:08:58'),(7,14,56,'2020-07-02 09:23:08','2020-07-02 09:23:08'),(8,40,29,'2020-07-14 03:53:24','2020-07-14 03:53:24'),(9,38,73,'2020-06-26 08:46:28','2020-06-26 08:46:28'),(10,77,61,'2020-06-28 10:55:37','2020-06-28 10:55:37'),(11,21,47,'2020-06-22 03:03:22','2020-06-22 03:03:22'),(12,17,12,'2020-06-18 00:27:11','2020-06-18 00:27:11'),(13,23,9,'2020-06-23 07:02:16','2020-06-23 07:02:16'),(14,50,51,'2020-06-14 11:14:09','2020-06-14 11:14:09'),(15,5,28,'2020-07-06 23:05:18','2020-07-06 23:05:18'),(16,50,71,'2020-06-13 14:48:24','2020-06-13 14:48:24'),(17,17,33,'2020-07-12 05:33:54','2020-07-12 05:33:54'),(18,66,60,'2020-06-21 07:30:10','2020-06-21 07:30:10'),(19,64,12,'2020-06-16 14:17:33','2020-06-16 14:17:33'),(20,21,4,'2020-07-13 00:48:55','2020-07-13 00:48:55'),(21,64,72,'2020-07-01 05:58:07','2020-07-01 05:58:07'),(22,59,76,'2020-07-09 02:52:49','2020-07-09 02:52:49'),(23,21,9,'2020-07-03 16:05:54','2020-07-03 16:05:54'),(24,49,68,'2020-07-04 21:56:19','2020-07-04 21:56:19'),(25,6,59,'2020-06-28 20:28:45','2020-06-28 20:28:45'),(26,21,40,'2020-06-26 18:53:35','2020-06-26 18:53:35'),(27,21,57,'2020-07-11 00:34:02','2020-07-11 00:34:02'),(28,61,18,'2020-06-27 16:38:28','2020-06-27 16:38:28'),(29,21,1,'2020-06-30 13:59:47','2020-06-30 13:59:47'),(30,39,6,'2020-07-08 11:50:42','2020-07-08 11:50:42'),(31,11,21,'2020-07-08 16:43:51','2020-07-08 16:43:51'),(32,19,33,'2020-06-28 23:56:46','2020-06-28 23:56:46'),(33,61,49,'2020-06-13 06:18:23','2020-06-13 06:18:23'),(34,72,75,'2020-06-28 12:12:29','2020-06-28 12:12:29'),(35,50,25,'2020-07-05 20:34:22','2020-07-05 20:34:22'),(36,21,10,'2020-06-17 11:10:59','2020-06-17 11:10:59'),(37,33,21,'2020-07-06 19:04:33','2020-07-06 19:04:33'),(38,51,41,'2020-06-16 07:17:01','2020-06-16 07:17:01'),(39,43,37,'2020-06-21 15:27:42','2020-06-21 15:27:42'),(40,51,34,'2020-06-15 01:55:15','2020-06-15 01:55:15'),(41,74,13,'2020-06-28 06:56:56','2020-06-28 06:56:56'),(42,53,59,'2020-07-14 03:12:56','2020-07-14 03:12:56'),(43,1,63,'2020-07-03 23:37:25','2020-07-03 23:37:25'),(44,71,75,'2020-06-15 22:18:53','2020-06-15 22:18:53'),(45,16,70,'2020-07-11 17:56:40','2020-07-11 17:56:40'),(46,78,65,'2020-07-03 21:06:42','2020-07-03 21:06:42'),(47,20,80,'2020-07-03 15:56:42','2020-07-03 15:56:42'),(48,39,20,'2020-06-22 15:34:17','2020-06-22 15:34:17'),(49,37,61,'2020-07-13 01:19:52','2020-07-13 01:19:52'),(50,32,8,'2020-07-11 07:51:28','2020-07-11 07:51:28'),(51,70,14,'2020-06-30 16:04:47','2020-06-30 16:04:47'),(52,2,4,'2020-06-28 06:43:41','2020-06-28 06:43:41'),(53,23,13,'2020-06-23 00:15:21','2020-06-23 00:15:21'),(54,4,66,'2020-07-10 21:45:28','2020-07-10 21:45:28'),(55,42,18,'2020-07-02 21:40:44','2020-07-02 21:40:44'),(56,26,33,'2020-07-07 20:13:26','2020-07-07 20:13:26'),(57,54,5,'2020-06-15 23:52:27','2020-06-15 23:52:27'),(58,52,68,'2020-06-28 14:05:21','2020-06-28 14:05:21'),(59,37,68,'2020-06-25 23:37:25','2020-06-25 23:37:25'),(60,37,34,'2020-06-28 04:22:30','2020-06-28 04:22:30'),(61,78,33,'2020-07-12 17:10:20','2020-07-12 17:10:20'),(62,45,30,'2020-06-29 04:27:40','2020-06-29 04:27:40'),(63,66,33,'2020-06-14 04:32:53','2020-06-14 04:32:53'),(64,31,78,'2020-07-09 00:21:20','2020-07-09 00:21:20'),(65,62,78,'2020-06-13 21:43:46','2020-06-13 21:43:46'),(66,38,59,'2020-06-20 19:31:44','2020-06-20 19:31:44'),(67,15,51,'2020-07-08 20:12:51','2020-07-08 20:12:51'),(68,70,7,'2020-06-18 21:35:46','2020-06-18 21:35:46'),(69,50,13,'2020-07-02 20:11:12','2020-07-02 20:11:12'),(70,20,57,'2020-06-13 05:10:50','2020-06-13 05:10:50'),(71,49,70,'2020-07-08 08:51:11','2020-07-08 08:51:11'),(72,52,44,'2020-07-05 22:27:31','2020-07-05 22:27:31'),(73,64,20,'2020-07-11 14:04:43','2020-07-11 14:04:43'),(74,67,51,'2020-07-12 15:18:57','2020-07-12 15:18:57'),(75,31,47,'2020-07-13 22:23:07','2020-07-13 22:23:07'),(76,21,75,'2020-06-28 16:42:30','2020-06-28 16:42:30'),(77,35,53,'2020-06-24 08:31:38','2020-06-24 08:31:38'),(78,25,62,'2020-06-27 22:55:14','2020-06-27 22:55:14'),(79,29,20,'2020-07-09 17:16:29','2020-07-09 17:16:29'),(80,9,19,'2020-07-01 08:25:19','2020-07-01 08:25:19'),(81,68,9,'2020-06-22 23:00:47','2020-06-22 23:00:47'),(82,52,13,'2020-07-05 05:43:45','2020-07-05 05:43:45'),(83,68,6,'2020-07-12 16:06:22','2020-07-12 16:06:22'),(84,29,73,'2020-07-09 03:00:55','2020-07-09 03:00:55'),(85,43,23,'2020-06-14 01:43:45','2020-06-14 01:43:45'),(86,74,75,'2020-07-07 22:32:28','2020-07-07 22:32:28'),(87,39,41,'2020-07-09 11:23:49','2020-07-09 11:23:49'),(88,21,78,'2020-06-29 10:23:21','2020-06-29 10:23:21'),(89,23,52,'2020-06-19 05:02:15','2020-06-19 05:02:15'),(90,21,70,'2020-07-12 09:22:43','2020-07-12 09:22:43'),(91,32,18,'2020-07-04 06:09:00','2020-07-04 06:09:00'),(92,32,12,'2020-07-13 03:24:54','2020-07-13 03:24:54'),(93,25,76,'2020-07-05 18:29:39','2020-07-05 18:29:39'),(94,5,36,'2020-07-06 03:29:11','2020-07-06 03:29:11'),(95,21,27,'2020-07-08 13:11:31','2020-07-08 13:11:31'),(96,6,2,'2020-06-26 19:33:36','2020-06-26 19:33:36');
+/*!40000 ALTER TABLE `buds` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-12-18 14:38:21
