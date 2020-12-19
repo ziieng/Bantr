@@ -40,12 +40,14 @@ module.exports = async function (app) {
 
 
   // Route for getting some data about our user to be used client side
-  app.get("/users/:username", async function (req, res) {
+  app.get("/users/:username", isAuthenticated, async function (req, res) {
     let username = req.params.username
     let userDetail = await userDetails(username)
-    // if (userDetail.id = req.user.id) {
-    //   console.log("it u")
-    // }
+    if (userDetail.id = req.user.id) {
+      userDetail.self = true
+    } else {
+      userDetail.self = false
+    }
     let { budList, budDetails } = await budLister({ from: userDetail.id })
     let posts = await postLister(userDetail.id)
     res.render("userprofile", { user: userDetail, buzz: posts, buds: budDetails })
@@ -62,6 +64,17 @@ module.exports = async function (app) {
     let { budList, budDetails } = await budLister({ from: req.user.id })
     let posts = await postLister(budList)
     res.render("dashboard", { buds: budDetails, buzz: posts });
+  });
+
+  //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
+  app.post("/api/buds/:id", isAuthenticated, function (req, res) {
+    db.Buds.create(["addresseeId", "UserId"], [req.params.id, req.user.id])
+      .then(function (result) {
+        res.json({ id: result.insertId });
+      })
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
   });
 
   //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
