@@ -15,14 +15,13 @@
                     <div class="card profilePhoto">
                         <div class="row">
                             <div class="col-sm-6">
-                                <img src="{{this.avatar}}" class="card-img-top" alt="avatar">
+                                <img src="{{user.avatar}}" class="card-img-top" alt="avatar">
                             </div>
                             <div class="col-sm-6">
                                 <div class="card-body">
-                                    <h5 class="card-title">John Doe</h5>
+                                    <h5 class="card-title">{{user.username}}</h5>
                                     <p class="card-text">I like long walks on the beach.</p>
-                                    <a href="#" style="background-color:#480552;" class="btn btn-primary p-1">buzz
-                                        me</a>
+                                    <a href="#" style="background-color:#480552;" class="btn btn-primary p-1" data-id="{{user.id}}">add bud</a>
                                 </div>
                             </div>
                         </div>
@@ -31,9 +30,9 @@
                 <div class="row mt-4">
                     <h4>my buds</h4>
                     <ul class="list-group" style="width:250px">
-                        {{#each friends}}
-
-                        <div class="row">
+                        {{#each buds}}
+                        {{> bud-block}}
+                        {{!-- <div class="row">
                             <div class="card friendsProfile">
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -48,7 +47,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             {{/each}}
                         </div>
                     </ul>
@@ -61,21 +60,9 @@
             <div class="col-md-6">
 
                 <ul class="list-group">
-                    {{#each followers}}
-                    <p class="alert alert-info" id="posts">
-                        {{this.body}}
-                    </p>
+                    {{#each buzz}}
+                    {{> buzz-block}}
                     {{/each}}
-                    <p>Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the industry's
-                        standard dummy text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled it to make a
-                        type specimen book. It has survived not only five centuries,
-                        but also the leap into electronic typesetting, remaining
-                        essentially unchanged. It was popularised in the 1960s with
-                        the release of Letraset sheets containing Lorem Ipsum passages,
-                        and more recently with desktop publishing software like Aldus
-                        PageMaker including versions of Lorem Ipsum.</p>
                 </ul>
 
             </div>
