@@ -193,3 +193,58 @@ img {
 .friendsButton {
   padding: 0px !important;
 }
+
+/* animation */
+
+.nav1{
+  font-weight: bold;
+  position: relative;
+  animation: n1 3s;
+}
+.n1 {animation-timing-function: linear;}
+@keyframes n1 {
+  from {top: 0px;}
+  to {left: 300px;}
+} 
+.nav2{
+  font-weight: bold;
+  position: relative;
+  animation: n2 3s;
+}
+.n2 {animation-timing-function: ease;}
+@keyframes n2 {
+  from {top: 0px;}
+  to {right: 300px;}
+} 
+
+.nav3{
+  font-weight: bold;
+  position: relative;
+  animation: n3 3s;
+}
+.n3 {animation-timing-function: ease-in;}
+@keyframes n3 {
+  from {top: 0px;}
+  to {bottom: 20px;}
+} 
+.nav4{
+  font-weight: bold;
+  position: relative;
+  animation: n4 3s;
+}
+.n4 {animation-timing-function: ease-out;}
+
+@keyframes n4 {
+  from {top: 0px;}
+  to {top: 20px;} 
+} 
+.nav5{
+  font-weight: bold;
+  position: relative;
+  animation: n5 3s;
+}
+.n5 {animation-timing-function: ease-in-out;}
+@keyframes n5 {
+  from {top: 0px;}
+  to {right: 100px;} 
+} 

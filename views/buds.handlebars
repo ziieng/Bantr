@@ -1,0 +1,38 @@
+<body>
+  <div class="container">
+    <nav class="navbar navbarStyle justify-content-center " style="background-color: #480052;">
+      <a class="navbar-brand navbarStyle " href="#"><b class="nav1 n1">b</b><b class="nav2 n2">u</b><b
+          class="nav3 n3">d</b><b class="nav4 n4">s</b></a>
+    </nav>
+  </div>
+  <!--Container -->
+  <div class="container buds-container">
+    <div class="row">
+      <!--Column 1-->
+
+      <div class="col-md-6">
+        <h2>followers</h2>
+        <ul class="list-group">
+          {{#each followers}}
+          <!-- changed these elements FROM DIV -->
+          <p class="alert alert-info" id="chats1">
+            {{this.followers}}
+          </p>
+          {{/each}}
+        </ul>
+      </div>
+      <!-- Column 2 -->
+      <div class="col-md-6">
+        <h2>following</h2>
+        <ul class="list-group">
+          {{#each following}}
+          <!-- changed these elements FROM DIV -->
+          <p class="alert alert-info" id="chats2">
+            {{this.following}}
+          </p>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
