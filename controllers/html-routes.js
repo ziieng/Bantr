@@ -23,9 +23,4 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
-  app.get("/favicon", function (req, res) {
-    // If the user already has an account send them to the members page
-    res.sendFile(path.join(__dirname, "../public/favicon/"));
-  });
-
 };
