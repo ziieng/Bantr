@@ -29,6 +29,44 @@
           <p class="alert alert-info" id="chats2">
             {{this.following}}
           </p>
+<nav class="navbar">
+  <span class="navbar-brand mb-0 h1" id="nav-heading">Chat Exchanges</span>
+</nav>
+<!--Container -->
+<div class="container" style="margin:100px;align-items: center;">
+  <div class="row">
+    <!--Column 1-->
+    <div class="col-md-6">
+      <div class="container">
+        <h1>Followers</h1>
+        <ul class="list-group">
+          {{#each followers}}
+          <div class="alert alert-info" id="chats1">
+            {{this.followers}}
+          </div>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Column 2 -->
+    <div class="col-md-6">
+      <div class="container">
+        <h1>Following</h1>
+        <ul class="list-group">
+          {{#each following}}
+          <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+          {{!-- <div class="alert alert-info" id="chats2">
+             {{this.following}}
+          </div>  --}}
           {{/each}}
         </ul>
       </div>
