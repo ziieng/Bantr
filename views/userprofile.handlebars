@@ -22,9 +22,8 @@
                                     <h5 class="card-title">{{user.username}}</h5>
                                     <p class="card-text">I like long walks on the beach.</p>
                                     {{#if user.self}}
-                                    <a href="#" style="background-color:#480552;" class="btn btn-primary p-1" data-id="{{user.id}}">edit profile</a>
                                     {{else}}
-                                    <a href="#" style="background-color:#480552;" class="btn btn-primary p-1" data-id="{{user.id}}">add bud</a>
+                                    <a href="#" style="background-color:#480552;" class="btn btn-primary p-1 follow-buds" data-id="{{user.id}}">add bud</a>
                                     {{/if}}
                                 </div>
                             </div>

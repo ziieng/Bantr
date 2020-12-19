@@ -67,7 +67,7 @@ module.exports = async function (app) {
   });
 
   //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
-  app.post("/api/buds/:id", isAuthenticated, function (req, res) {
+  app.post("/api/followReq/:id", isAuthenticated, function (req, res) {
     db.Buds.create(["addresseeId", "UserId"], [req.params.id, req.user.id])
       .then(function (result) {
         res.json({ id: result.insertId });
