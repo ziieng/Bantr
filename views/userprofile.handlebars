@@ -1,88 +1,56 @@
-<body>
-    <div class="container">
+<body class="bodyBackground ">
+    <div class="container ">
         <nav class="navbar  navbarStyle justify-content-center " style="background-color: #480052;">
             <a class="navbar-brand navbarStyle " href="#"><b class="n1 nav1">b</b><b class="n2 nav2">u</b><b
-                    class="nav3 n3">z</b><b class="nav4 n4">z</b><b class="nav5 n5">i</b><b class="nav2 n2">n</b><b class="nav4 n4">g</b></a>
+                    class="nav3 n3">d</b><b class="nav4 n4">f</b><b class="nav5 n5">i</b><b class="nav2 n2">l</b><b
+                    class="nav4 n4">e</b></a>
         </nav>
     </div>
 
-    <!--Container -->
-    <div class="container contUser">
+    <div class="container contUser ">
         <div class="row">
-            <div class="col-md-6">
-
-                <div class="row">
-                    <div class="card profilePhoto">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <img src="{{this.avatar}}" class="card-img-top" alt="avatar">
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="card-body">
-                                    <h5 class="card-title">John Doe</h5>
-                                    <p class="card-text">I like long walks on the beach.</p>
-                                    <a href="#" style="background-color:#480552;" class="btn btn-primary p-1">buzz
-                                        me</a>
-                                </div>
-                            </div>
-                        </div>
+            <div class="col-md-5">
+                <div class="card" id="follower" style="width: 18rem;">
+                    <div class="card-body">
+                        {{#if user.self}}
+                        {{else}}
+                        <a href="/users/{{username}}"><img src="{{avatar}}&s=40" class="img-thumbnail float-right"
+                                alt="user avatar for {{username}}">
+                        </a>
+                        <h5 class="card-title">@{{username}}</h5>
+                        <a href="#"  class="btn btnFix btn-primary p-1"
+                            data-id="{{user.id}}"><b>+</b> bud</a>
+                        
+                        {{/if}}
                     </div>
                 </div>
-                <div class="row mt-4">
-                    <h4>my buds</h4>
-                    <ul class="list-group" style="width:250px">
-                        {{#each friends}}
-
-                        <div class="row">
-                            <div class="card friendsProfile">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <img src="{{this.avatar}}" class="card-img-top" alt="avatar">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="card-body friendsButton">
-                                            <h6 class="card-title">{{this.name}}</h6>
-
-                                            <a href="#" style="background-color:#480552;"
-                                                class="btn btn-primary p-1">buzz me</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {{/each}}
-                        </div>
-                    </ul>
-                </div>
-
+                <br>
+                
+                <ul class="list-group following">
+                    <h4 class="myBudsh4">my buds</h4>
+                    {{#each friends}}
+                    {{#if following}}
+                    {{> bud-block}}
+                    {{/if}}
+                    {{/each}}
+                    
+                </ul>
             </div>
-
-
-            <!-- Column 2 -->
-            <div class="col-md-6">
-
-                <ul class="list-group">
+            <div class="col-md-7 ">
+                <h1 class="postsBoards">Posts</h1>
+                <ul class="list-group postsStyle">
                     {{#each followers}}
-                    <p class="alert alert-info" id="posts">
+                    <p class="alert alert-info postS " id="posts">
                         {{this.body}}
                     </p>
                     {{/each}}
-                    <p>Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the industry's
-                        standard dummy text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled it to make a
-                        type specimen book. It has survived not only five centuries,
-                        but also the leap into electronic typesetting, remaining
-                        essentially unchanged. It was popularised in the 1960s with
-                        the release of Letraset sheets containing Lorem Ipsum passages,
-                        and more recently with desktop publishing software like Aldus
-                        PageMaker including versions of Lorem Ipsum.</p>
+                    <br>
+                    
                 </ul>
 
             </div>
+
         </div>
-      </div>
     </div>
-
-
 
 </body>
