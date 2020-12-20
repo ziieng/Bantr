@@ -15,16 +15,18 @@
 
 </head>
 
-<body class="bodyBackground ">
-    <div class="container ">
-        <nav class="navbar  navbarStyle justify-content-center " style="background-color: #480052;">
-            <a class="navbar-brand navbarStyle " href="#"><b class="n1 nav1">b</b><b class="n2 nav2">u</b><b
-                    class="nav3 n3">d</b><b class="nav4 n4">f</b><b class="nav5 n5">i</b><b class="nav2 n2">l</b><b
-                    class="nav4 n4">e</b></a>
+<body class="bodyBackground">
+    <div class="container">
+        <nav class="navbar navbarStyle justify-content-center" style="background-color: #480052;">
+            <a class="navbar-brand navbarStyle" href="#"><b class="n1 nav1">b</b><b class="n2 nav2">u</b><b
+                class="nav3 n3">d</b><b class="nav4 n4">f</b><b class="nav5 n5">i</b><b class="nav2 n2">l</b><b
+                class="nav4 n4">e</b>
+            </a>
+            <a type="button" href="/logout" class="btn btn-dark logoutbtn">logout</a>
         </nav>
     </div>
-
-    <div class="container contUser ">
+<!-- user profile starts -->
+    <div class="container contUser">
         <div class="row">
             <div class="col-md-5">
                 <div class="card" id="follower" style="width: 18rem;">
@@ -33,6 +35,7 @@
                         {{else}}
                         <a href="/users/{{username}}"><img src="{{avatar}}&s=40" class="img-thumbnail float-right"
                                 alt="user avatar for {{username}}">
+                                <a type="button" id="follow-buds"  data-id="{{this.id}}" class="btn btn-dark logoutbtn">Follow</a>
                         </a>
                         <h5 class="card-title">@{{username}}</h5>
                         <a href="#"  class="btn btnFix btn-primary p-1"
