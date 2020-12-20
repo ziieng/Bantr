@@ -3,7 +3,7 @@
 module.exports = function (sequelize, DataTypes) {
   var Buzz = sequelize.define("Buzz", {
     body: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
       validate: {
         len: [1, 140]

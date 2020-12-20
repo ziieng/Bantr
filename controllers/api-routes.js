@@ -62,6 +62,7 @@ module.exports = async function (app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/dashboard", isAuthenticated, async function (req, res) {
     let { budList, budDetails } = await budLister({ from: req.user.id })
+    budList.push(req.user.id)
     let posts = await postLister(budList)
     res.render("dashboard", { buds: budDetails, buzz: posts });
   });
@@ -78,11 +79,16 @@ module.exports = async function (app) {
   });
 
   //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
-  app.post("/api/buzz/", isAuthenticated, function (req, res) {
+  app.post("/api/buzz/", function (req, res) {
+    console.log(req.body)
     db.Buzz.create(["body", "reply_to", "userId"], [req.body.body, req.body.reply,
-    req.user.id], function (result) {
+      req.user.id])
+      .then(function (result) {
       // Send back the ID of the new buzz, for fun
-      res.json({ id: result.insertId });
+        res.json({ id: result.insertId });
+      })
+      .catch(function (err) {
+        res.json(err);
     });
   });
 
@@ -118,7 +124,8 @@ async function postLister(whereId) {
       required: true,
       attributes: ["username", "avatar"]
     },
-    where: { UserId: whereId }
+    where: { UserId: whereId },
+    order: [["createdAt", "DESC"]]
   })
   console.log(posts[0])
   let postData = []

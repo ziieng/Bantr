@@ -1,17 +1,22 @@
-$("#button-addon2").on("submit", function(event) {
+$("#newBuzz").on("click", function (event) {
     event.preventDefault();
     var newPost = {
-      post: $("#post-on-wall").val().trim()
+      body: $.trim($("textarea#postBody").html()),
+      reply: 0
     };
 
     // Send the POST request.
-    $.ajax("/api/post", {
+  $.ajax("/api/buzz/", {
       type: "POST",
-      data: newPost
+    dataType: "JSONP",
+    data: newPost
     }).then(
-      function() {
-        console.log("created new plan");
+      function (response, err) {
+        if (err) {
+          console.log(err)
+        } else {
         location.reload();
+        }
       }
     );
   });
