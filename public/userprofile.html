@@ -27,49 +27,52 @@
     </div>
 <!-- user profile starts -->
     <div class="container contUser">
-        <div class="row rowFix">
-            <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-5">
                 <div class="card" id="follower" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">@{{username}}</h5>
+                       
                         <a href="/users/{{username}}"><img src="{{avatar}}&s=40" class="img-thumbnail float-right"
                                 alt="user avatar for {{username}}">
                                 <a type="button" id="follow-buds"  data-id="{{this.id}}" class="btn btn-dark logoutbtn">Follow</a>
                         </a>
+                        <h5 class="card-title">@{{username}}</h5>
+                        {{#if user.self}}
+                        {{else}}
+                        <a href="#"  class="btn btnFix btn-primary p-1"
+                            data-id="{{user.id}}"><b>+</b> bud</a>
                         
+                        {{/if}}
                     </div>
                 </div>
-                </div>
-            
-            <div class="col-md-6" style="background-color: #164050;">
-
-                <ul class="list-group">
-                    {{#each followers}}
-                    <p class="alert alert-info" id="posts">
-                        {{this.body}}
-
-                        {{/each}}
-                    </p>
-                </ul>
-
-            </div>
-        </div>
-        <div class="row rowFix2">
-            <div class="col-md-6">
-                <h4>my buds</h4>
-                <ul class="list-group following" style="width:250px">
-                    {{#each friends}}
+                <br>
+                
+                <ul class="list-group following">
+                    <h4 class="myBudsh4">my buds</h4>
+                    {{#each buds}}
                     {{#if following}}
                     {{> bud-block}}
                     {{/if}}
                     {{/each}}
-
+                    
                 </ul>
             </div>
+            <div class="col-md-7 ">
+                <h1 class="postsBoards">Posts</h1>
+                <ul class="list-group postsStyle">
+                    {{#each followers}}
+                    <p class="alert alert-info postS " id="posts">
+                        {{this.body}}
+                    </p>
+                    {{/each}}
+                    <br>
+                    
+                </ul>
+
+            </div>
+
         </div>
-
     </div>
-
 
 </body>
 

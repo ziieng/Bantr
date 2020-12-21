@@ -1,78 +1,47 @@
-<body>
-    <div class="container">
+<body class="bodyBackground ">
+    <div class="container ">
         <nav class="navbar  navbarStyle justify-content-center " style="background-color: #480052;">
             <a class="navbar-brand navbarStyle " href="#"><b class="n1 nav1">b</b><b class="n2 nav2">u</b><b
-                    class="nav3 n3">z</b><b class="nav4 n4">z</b><b class="nav5 n5">i</b><b class="nav2 n2">n</b><b class="nav4 n4">g</b></a>
+                    class="nav3 n3">d</b><b class="nav4 n4">f</b><b class="nav5 n5">i</b><b class="nav2 n2">l</b><b
+                    class="nav4 n4">e</b></a>
         </nav>
     </div>
 
-    <!--Container -->
-    <div class="container contUser">
+    <div class="container contUser ">
         <div class="row">
-            <div class="col-md-6">
-
-                <div class="row">
-                    <div class="card profilePhoto">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <img src="{{user.avatar}}" class="card-img-top" alt="avatar">
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{user.username}}</h5>
-                                    <p class="card-text">I like long walks on the beach.</p>
-                                    {{#if user.self}}
-                                    {{else}}
-                                    <a href="#" style="background-color:#480552;" class="btn btn-primary p-1 follow-buds" data-id="{{user.id}}">add bud</a>
-                                    {{/if}}
-                                </div>
-                            </div>
-                        </div>
+            <div class="col-md-5">
+                <div class="card" id="follower" style="width: 18rem;">
+                    <div class="card-body">
+                        <a href="/users/{{user.username}}"><img src="{{user.avatar}}" class="img-thumbnail float-right"
+                                alt="user avatar for {{user.username}}">
+                        </a>
+                        <h5 class="card-title">@{{user.username}}</h5>
+                        {{#if user.self}}
+                        {{else}}
+                        <button class="btn btnFix btn-secondary p-1" id="follow-buds" data-id="{{user.id}}"><b>+</b> bud</button>
+                        {{/if}}
                     </div>
                 </div>
-                <div class="row mt-4">
-                    <h4>my buds</h4>
-                    <ul class="list-group" style="width:250px">
-                        {{#each buds}}
-                        {{> bud-block}}
-                        {{!-- <div class="row">
-                            <div class="card friendsProfile">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <img src="{{this.avatar}}" class="card-img-top" alt="avatar">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="card-body friendsButton">
-                                            <h6 class="card-title">{{this.name}}</h6>
+                <br>
 
-                                            <a href="#" style="background-color:#480552;"
-                                                class="btn btn-primary p-1">buzz me</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
-                            {{/each}}
-                        </div>
-                    </ul>
-                </div>
+                <ul class="list-group following">
+                    <h4 class="myBudsh4">my buds</h4>
+                    {{#each buds}}
+                    {{> bud-block}}
+                    {{/each}}
 
+                </ul>
             </div>
-
-
-            <!-- Column 2 -->
-            <div class="col-md-6">
-
-                <ul class="list-group">
+            <div class="col-md-7 ">
+                <h1 class="postsBoards">Posts</h1>
+                <ul class="list-group postsStyle">
                     {{#each buzz}}
                     {{> buzz-block}}
                     {{/each}}
+                    <br>
                 </ul>
-
             </div>
         </div>
-      </div>
     </div>
-
-
-
+<script src="../js/profile.js"></script>
 </body>

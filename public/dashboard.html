@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bantr</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Kalam:wght@700&family=Patrick+Hand&family=Sedgwick+Ave&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+</head>
+
+<body class="bodyBackground ">
+    <div class="container ">
+        <nav class="navbar  navbarStyle justify-content-center " style="background-color: #480052;">
+            <a class="navbar-brand navbarStyle " href="#"><b class="n1 nav1">b</b><b class="n2 nav2">u</b><b
+                    class="nav3 n3">d</b><b class="nav4 n4">f</b><b class="nav5 n5">i</b><b class="nav2 n2">l</b><b
+                    class="nav4 n4">e</b></a>
+        </nav>
+    </div>
+
+    <div class="container" style="margin:100px;align-items: center;">
+        <div class="row">
+          <!--Column 1-->
+          <div class="col-md-6">
+            <div class="row mb-3" id="post">
+              <div class="input-group mb-3">
+                <input type="textarea" class="form-control" rows="3" placeholder="What's on your mind?"
+                  aria-label="What's on your mind?" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Post</button>
+              </div>
+            </div>
+            <div class="container">
+              <h4>my buds</h4>
+                <ul class="list-group" id="friends-list">
+                {{#each buds}}
+                {{> bud-block}}
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+      
+          <!-- Column 2 -->
+          <div class="col-md-6">
+            <div class="container">
+              <h1>Posts</h1>
+              <ul class="list-group">
+                {{#each buzz}}
+                {{> buzz-block}}
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+
+
+</html>

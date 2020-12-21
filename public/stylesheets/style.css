@@ -1,18 +1,12 @@
 * {
   box-sizing: border-box;
-}
-form.signup,
-form.login {
-  float: left;
+  ;
 }
 
 body {
   width: 100vw;
   height: 100vh;
-}
-
-.bodyBackground{
-  background-color: #e7bc0d;
+  background-color: #fefbec;
 }
 
 html {
@@ -20,17 +14,10 @@ html {
   height: auto;
 }
 
-#loginBG {
-  background-image: url("./img/loginBG3.png") !important;
-}
-
-img {
-  padding: 20px;
-}
-
 .fixCol {
   padding-left: 0px !important;
 }
+
 #fixColBL {
   padding-left: 60px !important;
 }
@@ -42,13 +29,6 @@ img {
   margin-right: 0px !important;
 }
 
-.log-in {
-  background-color: #480052;
-  width: 400px;
-  height: 400px;
-  margin: 50px;
-  padding: 50px;
-}
 
 .styleForm {
   background-color: #480052;
@@ -78,22 +58,16 @@ img {
   margin-top: 10%;
 }
 
-.contUser {
-  width: auto;
-  height: auto;
-  align-items: center;
-  justify-content: center;
-  margin-top: 5%;
-}
+
 
 .rowFix {
-  width: 90% !important;
-  --bs-gutter-x: 3.5rem !important;
-  margin-left: 0px!important;
+  display: block !important;
+  width: 50%;
+  height: auto;
 }
 
 .rowFix2 {
-float: left;
+  margin-top: 0px !important;
 }
 .bantr {
   text-align: center;
@@ -108,20 +82,15 @@ float: left;
   color: #f45a01 !important;
   text-align: center;
   font-size: 60px !important;
-  font-family: 'Kalam', cursive;;
+  font-family: 'Patrick Hand', cursive;
   padding-top: 0px;
   padding-bottom: 0x;
 }
 
-.navbar{
+.navbar {
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
-
-/* font-family: 'Caveat', cursive;
-font-family: 'Patrick Hand', cursive;
-font-family: 'Sedgwick Ave', cursive; */
-/* LOGIN ANIMATIONS */
 
 .bantrApplogin {
   width: 400px;
@@ -151,13 +120,7 @@ font-family: 'Sedgwick Ave', cursive; */
 .avActive {
   background-color: #f45a01;
 }
-#post{
-  width: 275px;
-  height: 136px;
-}
-#posts{
-  background-color: #008F47;
-  color:white;}
+
 
 #bantrAppsignup {
   width: 100%;
@@ -176,8 +139,15 @@ font-family: 'Sedgwick Ave', cursive; */
     background-color: #6c007b;
   }
 }
+/* DASHBOARD */
 
-/* BUDS LIST ______________________ */
+.contDash {
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+/* BUDS LIST ________________________________ */
 .buds-container {
   background-color: #480052 !important;
 
@@ -197,21 +167,61 @@ font-family: 'Sedgwick Ave', cursive; */
 }
 
 /* changed from chats2 */
-.following {
-  background-color: #f45a01;
-  color: white;
-}
-
-#posts {
-  background-color: #008f47;
-  color: white;
-}
 
 #friends-list {
   background-color: #164050;
   color: #f45a01;
 }
-/* USERPROFILE _________________*/
+/* USERPROFILE _______________________________________*/
+.contUser {
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+}
+.postsStyle {
+  background-color: #164050;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 5px;
+  margin: 10px;
+}
+#post {
+  
+  width: auto;
+  height: 136px;
+}
+.postS {
+  background-color: #164050;
+  width: 50%;
+  color: white;
+}
+
+.postsBoards{
+  text-align: center;
+  background-color: #480052;
+  color: white;
+}
+.following {
+  background-color: #f45a01;
+  color: white;
+  
+}
+
+.myBudsh4 {
+  text-align: center;
+  background-color: #480052;
+  color: white;
+}
+p {
+  padding: 10px;
+}
+#posts {
+  background-color: #008f47;
+  color: white;
+}
+
 .btnFix {
   padding: 1px !important;
 }
@@ -233,55 +243,85 @@ font-family: 'Sedgwick Ave', cursive; */
 
 /* animation NAV________________ */
 
-.nav1{
+.nav1 {
   font-weight: bold;
   position: relative;
-  animation: n1 3s;
+  animation: n1 2s;
 }
-.n1 {animation-timing-function: linear;}
+.n1 {
+  animation-timing-function: linear;
+}
 @keyframes n1 {
-  from {top: 0px;}
-  to {left: 300px;}
-} 
-.nav2{
+  from {
+    top: 0px;
+  }
+  to {
+    left: 300px;
+  }
+}
+.nav2 {
   font-weight: bold;
   position: relative;
   animation: n2 3s;
 }
-.n2 {animation-timing-function: ease;}
+.n2 {
+  animation-timing-function: ease;
+}
 @keyframes n2 {
-  from {top: 0px;}
-  to {right: 300px;}
-} 
+  from {
+    top: 0px;
+  }
+  to {
+    right: 300px;
+  }
+}
 
-.nav3{
+.nav3 {
   font-weight: bold;
   position: relative;
   animation: n3 3s;
 }
-.n3 {animation-timing-function: ease-in;}
+.n3 {
+  animation-timing-function: ease-in;
+}
 @keyframes n3 {
-  from {top: 0px;}
-  to {bottom: 20px;}
-} 
-.nav4{
+  from {
+    top: 0px;
+  }
+  to {
+    bottom: 20px;
+  }
+}
+.nav4 {
   font-weight: bold;
   position: relative;
   animation: n4 3s;
 }
-.n4 {animation-timing-function: ease-out;}
+.n4 {
+  animation-timing-function: ease-out;
+}
 
 @keyframes n4 {
-  from {top: 0px;}
-  to {top: 20px;} 
-} 
-.nav5{
+  from {
+    top: 0px;
+  }
+  to {
+    top: 20px;
+  }
+}
+.nav5 {
   font-weight: bold;
   position: relative;
   animation: n5 3s;
 }
-.n5 {animation-timing-function: ease-in-out;}
+.n5 {
+  animation-timing-function: ease-in-out;
+}
 @keyframes n5 {
-  from {top: 0px;}
-  to {right: 100px;} 
-} 
+  from {
+    top: 0px;
+  }
+  to {
+    right: 100px;
+  }
+}
