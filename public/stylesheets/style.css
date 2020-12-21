@@ -2,17 +2,10 @@
   box-sizing: border-box;
   ;
 }
-form.signup,
-form.login {
-  float: left;
-}
 
 body {
   width: 100vw;
   height: 100vh;
-}
-
-.bodyBackground {
   background-color: #fefbec;
 }
 
@@ -21,17 +14,10 @@ html {
   height: auto;
 }
 
-#loginBG {
-  background-image: url("./img/loginBG3.png") !important;
-}
-
-img {
-  padding: 20px;
-}
-
 .fixCol {
   padding-left: 0px !important;
 }
+
 #fixColBL {
   padding-left: 60px !important;
 }
@@ -43,13 +29,6 @@ img {
   margin-right: 0px !important;
 }
 
-.log-in {
-  background-color: #480052;
-  width: 400px;
-  height: 400px;
-  margin: 50px;
-  padding: 50px;
-}
 
 .styleForm {
   background-color: #480052;

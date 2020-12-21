@@ -1,7 +1,7 @@
 tinymce.init({
   selector: "textarea#postBody",
-  plugins: "emoticons lists",
-  toolbar: "emoticons | bold italic strikethrough | numlist bullist advlist | removeformat",
+  plugins: "emoticons",
+  toolbar: "emoticons",
   toolbar_location: "bottom",
   menubar: false
 })
@@ -10,13 +10,14 @@ $("#newBuzz").on("click", function (event) {
     event.preventDefault();
     var newPost = {
       body: tinymce.activeEditor.getContent(),
-      reply: null
+      reply: null,
+      id: userId
     };
 
     // Send the POST request.
   $.ajax("/api/buzz/", {
       type: "POST",
-    dataType: "JSONP",
+    dataType: "JSON",
     data: newPost
     }).then(
       function (response, err) {

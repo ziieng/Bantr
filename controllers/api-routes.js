@@ -42,8 +42,8 @@ module.exports = async function (app) {
   // Route for getting some data about our user to be used client side
   app.get("/users/:username", isAuthenticated, async function (req, res) {
     let username = req.params.username
-    let userDetail = await userDetails(username)
-    if (userDetail.id = req.user.id) {
+    let userDetail = await userDetails({ username: username })
+    if (userDetail.id == req.user.id) {
       userDetail.self = true
     } else {
       userDetail.self = false
@@ -61,15 +61,17 @@ module.exports = async function (app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/dashboard", isAuthenticated, async function (req, res) {
+    console.log(req.user)
     let { budList, budDetails } = await budLister({ from: req.user.id })
     budList.push(req.user.id)
+    let userDetail = await userDetails({ id: req.user.id })
     let posts = await postLister(budList)
-    res.render("dashboard", { buds: budDetails, buzz: posts });
+    res.render("dashboard", { user: userDetail, buds: budDetails, buzz: posts });
   });
 
   //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
-  app.post("/api/followReq/:id", isAuthenticated, function (req, res) {
-    db.Buds.create(["addresseeId", "UserId"], [req.params.id, req.user.id])
+  app.post("/api/followReq/", function (req, res) {
+    db.Buds.create(["addresseeId", "UserId"], [req.body.addId, req.user.id])
       .then(function (result) {
         res.json({ id: result.insertId });
       })
@@ -81,14 +83,14 @@ module.exports = async function (app) {
   //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
   app.post("/api/buzz/", function (req, res) {
     db.Buzz.create(["body", "reply_to", "userId"], [req.body.body, req.body.reply,
-      req.user.id])
+      req.body.id])
       .then(function (result) {
-      // Send back the ID of the new buzz, for fun
+        // Send back the ID of the new buzz, for fun
         res.json({ id: result.insertId });
       })
       .catch(function (err) {
         res.json(err);
-    });
+      });
   });
 
   //route to make Gravatar image links for the signup page
@@ -106,12 +108,11 @@ module.exports = async function (app) {
 
 }
 
-async function userDetails(username) {
+async function userDetails(search) {
   let user = await db.User.findOne({
-    where: { username: username },
+    where: search,
     attributes: { exclude: ["password"] }
   })
-  console.log(user)
   let userDetail = user.dataValues
   return userDetail
 }
@@ -126,16 +127,17 @@ async function postLister(whereId) {
     where: { UserId: whereId },
     order: [["createdAt", "DESC"]]
   })
-  console.log(posts[0])
   let postData = []
   for (line of posts) {
+    let data = line.dataValues
+    let user = line.User.dataValues
     postData.push({
-      body: line.dataValues.body,
-      reply: line.dataValues.reply_to,
-      buzzId: line.dataValues.id,
-      created: line.dataValues.createdAt,
-      username: line.User.dataValues.username,
-      avatar: line.User.dataValues.avatar
+      body: data.body,
+      reply: data.reply_to,
+      buzzId: data.id,
+      created: data.createdAt,
+      username: user.username,
+      avatar: user.avatar
     })
   }
   return postData
@@ -151,6 +153,7 @@ async function budLister(ref) {
       include: { model: db.User, as: "addressee", required: true, attributes: ["username", "avatar"] },
       where: { UserId: ref.from }
     })
+    console.log(buds)
     for (line of buds) {
       budList.push(line.addresseeId)
       budDetails.push(line.addressee.dataValues)
@@ -161,7 +164,6 @@ async function budLister(ref) {
       attributes: ["UserId"],
       where: { addresseeId: ref.to }
     })
-    console.log(buds)
     for (line of buds) {
       budList.push(line.UserId)
     }
@@ -174,7 +176,8 @@ async function budLister(ref) {
     }
   }
   // if (buds = "[]") {
-  //   console.log("empty")
+  //   budList = "None"
+  //   budDetails = "None"
   // }
   return { budList: budList, budDetails: budDetails }
 }
