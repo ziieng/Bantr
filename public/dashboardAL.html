@@ -15,58 +15,57 @@
 
 </head>
 
-<body class="bodyBackground">
-    <div class="container">
-        <nav class="navbar navbarStyle justify-content-center" style="background-color: #480052;">
-            <a class="navbar-brand navbarStyle" href="#"><b class="n1 nav1">b</b><b class="n2 nav2">u</b><b
-                class="nav3 n3">d</b><b class="nav4 n4">f</b><b class="nav5 n5">i</b><b class="nav2 n2">l</b><b
-                class="nav4 n4">e</b>
-            </a>
-            <a type="button" href="/logout" class="btn btn-dark logoutbtn">logout</a>
+<body class="bodyBackground ">
+    <div class="container ">
+        <nav class="navbar  navbarStyle justify-content-center " style="background-color: #480052;">
+            <a class="navbar-brand navbarStyle " href="#"><b class="n1 nav1">b</b><b class="n2 nav2">u</b><b
+                    class="nav3 n3">z</b><b class="nav4 n4">z</b><b class="nav5 n5">board</b></a>
         </nav>
     </div>
-<!-- user profile starts -->
-    <div class="container contUser">
+
+    <div class="container contDash ">
+        <div class="row " id="post">
+            <div class="col-md-12">
+                <div class="input-group ">
+                    <input type="textarea" class="form-control" rows="3" placeholder="What's on your mind?"
+                        aria-label="What's on your mind?" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Post</button>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-5">
                 <div class="card" id="follower" style="width: 18rem;">
                     <div class="card-body">
-                       
-                        <a href="/users/{{username}}"><img src="{{avatar}}&s=40" class="img-thumbnail float-right"
-                                alt="user avatar for {{username}}">
-                                <a type="button" id="follow-buds"  data-id="{{this.id}}" class="btn btn-dark logoutbtn">Follow</a>
-                        </a>
-                        <h5 class="card-title">@{{username}}</h5>
                         {{#if user.self}}
                         {{else}}
-                        <a href="#"  class="btn btnFix btn-primary p-1"
-                            data-id="{{user.id}}"><b>+</b> bud</a>
-                        
+                        <a href="/users/{{username}}"><img src="{{avatar}}&s=40" class="img-thumbnail float-right"
+                                alt="user avatar for {{username}}">
+                        </a>
+                        <h5 class="card-title">@{{username}}</h5>
+                        <a href="#" class="btn btnFix btn-primary p-1" data-id="{{user.id}}"><b>+</b> bud</a>
+
                         {{/if}}
                     </div>
                 </div>
                 <br>
-                
-                <ul class="list-group following">
+
+                <ul class="list-group following" id="friends-list">
                     <h4 class="myBudsh4">my buds</h4>
+
                     {{#each buds}}
-                    {{#if following}}
                     {{> bud-block}}
-                    {{/if}}
                     {{/each}}
-                    
+
                 </ul>
             </div>
             <div class="col-md-7 ">
                 <h1 class="postsBoards">Posts</h1>
                 <ul class="list-group postsStyle">
-                    {{#each followers}}
-                    <p class="alert alert-info postS " id="posts">
-                        {{this.body}}
-                    </p>
+                    {{#each buzz}}
+                    {{> buzz-block}}
                     {{/each}}
-                    <br>
-                    
+
                 </ul>
 
             </div>
