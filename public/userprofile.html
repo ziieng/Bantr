@@ -52,9 +52,9 @@
                 <ul class="list-group following" style="background-color: #164050;">
                     <h4 class="myBudsh4 p-2">my buds</h4>
                     {{#each buds}}
-                    {{#if following}}
+                    
                     {{> bud-block}}
-                    {{/if}}
+                    
                     {{/each}}
 
                 </ul>
@@ -63,10 +63,8 @@
 
                 <ul class="list-group postsStyle">
                     <h1 class="postsBoards p-2">buzz</h1>
-                    {{#each followers}}
-                    <p class="alert alert-info postS " id="posts">
-                        {{this.body}}
-                    </p>
+                    {{#each buzz}}
+                    {{> buzz-block}}
                     {{/each}}
                     <br>
 

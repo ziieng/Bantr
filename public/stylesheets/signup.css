@@ -1,31 +1,18 @@
 * {
   box-sizing: border-box;
 }
-form.signup,
-form.login {
-  float: left;
-}
 
 body
 {
   width: 100vw;
   height: 100vh;
-}
-
-html {
-  width: 100vw;
-  height: auto;
+  background-image: url("./img/loginBG3.png") !important;
 }
 
 form {
   width: 100vw;
   height: 100%;
   position: relative;
-}
-
-
-.signupBG {
-  background-image: url("./img/loginBG3.png") !important;
 }
 
 .contSignup{
@@ -43,7 +30,6 @@ form {
 
 .contSignupV2{
   background-color: #480052;
-  margin-top: 10%;
   width: auto;
   height: auto;
   display: flex;

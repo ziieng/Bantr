@@ -1,22 +1,25 @@
+tinymce.init({
+  selector: "textarea#postBody",
+  plugins: "emoticons",
+  toolbar: "emoticons",
+  toolbar_location: "bottom",
+  menubar: false
+})
+
 $("#newBuzz").on("click", function (event) {
     event.preventDefault();
     var newPost = {
-      body: $.trim($("textarea#postBody").html()),
-      reply: 0
+      body: tinymce.activeEditor.getContent({ format: "text" }),
+      reply: null
     };
 
     // Send the POST request.
   $.ajax("/api/buzz/", {
       type: "POST",
-    dataType: "JSONP",
+    dataType: "JSON",
     data: newPost
-    }).then(
-      function (response, err) {
-        if (err) {
-          console.log(err)
-        } else {
-        location.reload();
-        }
-      }
-    );
+  })
+    .then(
+      location.reload())
+    .catch((err) => console.log(err));
   });

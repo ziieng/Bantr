@@ -26,10 +26,10 @@
                     <div class="card-body">
                         {{#if user.self}}
                         {{else}}
-                        <a href="/users/{{username}}"><img src="{{avatar}}&s=40" class="img-thumbnail float-right"
-                                alt="user avatar for {{username}}">
+                        <a href="/users/{{user.username}}"><img src="{{user.avatar}}" class="img-thumbnail float-right"
+                                alt="user avatar for {{user.username}}">
                         </a>
-                        <h5 class="card-title">@{{username}}</h5>
+                        <h5 class="card-title">@{{user.username}}</h5>
 
                         {{/if}}
                     </div>
@@ -59,4 +59,9 @@
         </div>
     </div>
 
-</body>
+    </div>
+
+  </div>
+</div>
+</div>
+<script src="/js/dashboard.js"></script>

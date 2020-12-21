@@ -16,7 +16,8 @@ body {
 
 .overlay {
   background: url("./img/loginBG3.png");
-  background-size: contain;
+  /* background-size: contain; */
+  background-repeat: repeat;
   position: fixed;
   height: 100% !important;
   width: 100%;
@@ -212,6 +213,20 @@ img {
   justify-content: center;
   margin-top: 20px;
 }
+
+.postBlock{
+  width: 60% !important;
+  margin-top: 5%;
+  margin-left: 20%;
+}
+
+.postBlockButton {
+background-color:  #164050 !important;
+margin-top: 5px;
+color: white !important;
+border-radius: 0px !important;
+}
+
 /* BUDS LIST ________________________________ */
 .buds-container {
   background-color: #480052 !important;

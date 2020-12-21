@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("./img/loginBG3.png") !important;
+}
+
+.fixRow {
+  padding-left: 0px !important;
+  padding-right: 20px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.login {
+  background-color: #480052;
+  margin: 50px;
+  padding: 50px;
+}
+
+.styleForm {
+  background-color: #480052;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formFix {
+  padding: 10px !important;
+}
+
+.formFixButton {
+  background-color: #1b4e5f !important;
+  padding: 5px 15px !important;
+  margin-top: 15px !important;
+  color: white !important;
+}
+
+.contLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.bantrApplogin {
+  width: 400px;
+  height: 450px;
+  background-color: #e7bc0d;
+  animation-name: bantrAppLogin;
+  animation-duration: 5s;
+  text-align: center;
+}
+
+@keyframes bantrAppLogin {
+  from {
+    background-color: #6c007b;
+  }
+  to {
+    background-color: #e7bc0d;
+  }
+}

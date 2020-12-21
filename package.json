@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bant-r/Bantr.git"
+    "url": "git+https://github.com/ziieng/Bantr.git"
   },
   "keywords": [
     "project"
@@ -19,9 +19,9 @@
   "author": "Christina Engelhardt, Cameron Hickey, Amber Alex Lee, Anusha Ravva",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bant-r/Bantr/issues"
+    "url": "https://github.com/ziieng/Bantr/issues"
   },
-  "homepage": "https://github.com/bant-r/Bantr#readme",
+  "homepage": "https://github.com/ziieng/Bantr#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "eslint": "^7.15.0",

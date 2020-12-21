@@ -29,7 +29,13 @@ passport.use(new LocalStrategy(
         });
       }
       // If none of the above, return the user
-      return done(null, dbUser);
+      let scrubUser = {
+        id: dbUser.id,
+        email: dbUser.email,
+        username: dbUser.username,
+        avatar: dbUser.avatar,
+      }
+      return done(null, scrubUser);
     });
   }
 ));

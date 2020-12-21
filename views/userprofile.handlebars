@@ -17,17 +17,14 @@
             <div class="col-md-5">
                 <div class="card" id="follower" style="width: 18rem;">
                     <div class="card-body">
-
-                        <a href="/users/{{username}}"><img src="{{avatar}}&s=40" class="img-thumbnail float-right"
-                                alt="user avatar for {{username}}">
-                            <!-- <a type="button" id="follow-buds"  data-id="{{this.id}}" class="btn btn-dark logoutbtn">Follow</a>
-                        </a> -->
-                            <h5 class="card-title">@{{username}}</h5>
-                            {{#if user.self}}
-                            {{else}}
-                            <a href="#" class="btn btnFix btn-primary p-1" data-id="{{user.id}}"><b>+</b> bud</a>
-
-                            {{/if}}
+                        <a href="/users/{{user.username}}"><img src="{{user.avatar}}" class="img-thumbnail float-right"
+                                alt="user avatar for {{user.username}}">
+                        </a>
+                        <h5 class="card-title">@{{user.username}}</h5>
+                        {{#if user.self}}
+                        {{else}}
+                        <button class="btn btnFix btn-secondary p-1" id="follow-buds" data-id="{{user.id}}"><b>+</b> bud</button>
+                        {{/if}}
                     </div>
                 </div>
                 <br>
@@ -35,9 +32,7 @@
                 <ul class="list-group following" style="background-color: #164050;">
                     <h4 class="myBudsh4 p-2">my buds</h4>
                     {{#each buds}}
-                    {{#if following}}
                     {{> bud-block}}
-                    {{/if}}
                     {{/each}}
 
                 </ul>
@@ -46,18 +41,13 @@
 
                 <ul class="list-group postsStyle">
                     <h1 class="postsBoards p-2">buzz</h1>
-                    {{#each followers}}
-                    <p class="alert alert-info postS " id="posts">
-                        {{this.body}}
-                    </p>
+                    {{#each buzz}}
+                    {{> buzz-block}}
                     {{/each}}
                     <br>
-
                 </ul>
-
             </div>
-
         </div>
     </div>
-
+<script src="../js/profile.js"></script>
 </body>
