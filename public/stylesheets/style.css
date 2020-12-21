@@ -172,6 +172,7 @@ img {
   }
 }
 
+
 /* Classes for avatar selection */
 .avChoice {
   width: 130px;
@@ -335,7 +336,7 @@ p {
 .nav2 {
   font-weight: bold;
   position: relative;
-  animation: n2 3s;
+  animation: n2 2s;
 }
 .n2 {
   animation-timing-function: ease;
@@ -352,7 +353,7 @@ p {
 .nav3 {
   font-weight: bold;
   position: relative;
-  animation: n3 3s;
+  animation: n3 2s;
 }
 .n3 {
   animation-timing-function: ease-in;
@@ -368,10 +369,10 @@ p {
 .nav4 {
   font-weight: bold;
   position: relative;
-  animation: n4 3s;
+  animation: n4 2s;
 }
 .n4 {
-  animation-timing-function: ease-out;
+  animation-timing-function: ease-in-out;
 }
 
 @keyframes n4 {
@@ -385,10 +386,10 @@ p {
 .nav5 {
   font-weight: bold;
   position: relative;
-  animation: n5 3s;
+  animation: n5 2s;
 }
 .n5 {
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-out;
 }
 @keyframes n5 {
   from {
@@ -401,7 +402,8 @@ p {
 .nav6 {
   font-weight: bold;
   position: relative;
-  animation: n6 6s;
+  animation: n6 2s;
+  
 }
 .n6 {
   animation-timing-function: ease;
