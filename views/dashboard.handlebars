@@ -6,16 +6,14 @@
   <div class="row">
     <!--Column 1-->
     <div class="col-md-6">
-      <div class="row mb-3" id="post">
-        <div class="input-group mb-3">
-          <input type="textarea" class="form-control" id="post-on-wall" rows="3" placeholder="What's on your mind?"
-            aria-label="What's on your mind?" aria-describedby="button-addon2">
-          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Post</button>
-        </div>
+      <div class="row mb-3 px-0 mx-0" id="postArea">
+        {{> post-block}}
       </div>
-      <div class="container">
-        <h4>Your Buds</h1>
-          <ul class="list-group" id="friends-list">
+      <div class="row text-center">
+        <h4>Your Buds</h4>
+      </div>
+      <div class="row">
+        <ul class="list-group" id="friends-list">
           {{#each buds}}
           {{> bud-block}}
           {{/each}}
@@ -36,3 +34,4 @@
     </div>
   </div>
 </div>
+<script src="/js/dashboard.js"></script>

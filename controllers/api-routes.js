@@ -80,7 +80,6 @@ module.exports = async function (app) {
 
   //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
   app.post("/api/buzz/", function (req, res) {
-    console.log(req.body)
     db.Buzz.create(["body", "reply_to", "userId"], [req.body.body, req.body.reply,
       req.user.id])
       .then(function (result) {

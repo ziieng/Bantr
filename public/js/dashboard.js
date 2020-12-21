@@ -1,8 +1,16 @@
+tinymce.init({
+  selector: "textarea#postBody",
+  plugins: "emoticons lists",
+  toolbar: "emoticons | bold italic strikethrough | numlist bullist advlist | removeformat",
+  toolbar_location: "bottom",
+  menubar: false
+})
+
 $("#newBuzz").on("click", function (event) {
     event.preventDefault();
     var newPost = {
-      body: $.trim($("textarea#postBody").html()),
-      reply: 0
+      body: tinymce.activeEditor.getContent(),
+      reply: null
     };
 
     // Send the POST request.
