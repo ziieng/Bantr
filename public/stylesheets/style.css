@@ -144,14 +144,31 @@ img {
   height: 400px;
   background-color: #e7bc0d;
   animation-name: bantrAppLogin;
-  animation-duration: 5s;
+  animation-duration: 4s;
 }
 @keyframes bantrAppLogin {
   from {
-    background-color: #6c007b;
+    background-color:#480052;
   }
+  
   to {
     background-color: #e7bc0d;
+  }
+}
+.bantrApplogin2 {
+  width: auto;
+  height: auto;
+  background-color:#480052;
+  animation-name: bantrAppLogin2;
+  animation-duration: 4s;
+}
+@keyframes bantrAppLogin2 {
+  from {
+    background-color: #e7bc0d;
+  }
+  
+  to {
+    background-color:#480052;
   }
 }
 
