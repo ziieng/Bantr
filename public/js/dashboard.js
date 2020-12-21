@@ -9,9 +9,8 @@ tinymce.init({
 $("#newBuzz").on("click", function (event) {
     event.preventDefault();
     var newPost = {
-      body: tinymce.activeEditor.getContent(),
-      reply: null,
-      id: userId
+      body: tinymce.activeEditor.getContent({ format: "text" }),
+      reply: null
     };
 
     // Send the POST request.
@@ -19,13 +18,8 @@ $("#newBuzz").on("click", function (event) {
       type: "POST",
     dataType: "JSON",
     data: newPost
-    }).then(
-      function (response, err) {
-        if (err) {
-          console.log(err)
-        } else {
-        location.reload();
-        }
-      }
-    );
+  })
+    .then(
+      location.reload())
+    .catch((err) => console.log(err));
   });

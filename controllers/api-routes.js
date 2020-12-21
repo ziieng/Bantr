@@ -54,6 +54,21 @@ module.exports = async function (app) {
   });
 
   // A redirect bc zii keeps typing the wrong address
+  app.get("/users/stylesheets/:file", function (req, res) {
+    res.status(301).redirect("/stylesheets/" + req.params.file)
+  });
+
+  // A redirect bc zii keeps typing the wrong address
+  app.get("/users/favicon/:file", function (req, res) {
+    res.status(301).redirect("/favicon/" + req.params.file)
+  });
+
+  // A redirect bc zii keeps typing the wrong address
+  app.get("/users/js/:file", function (req, res) {
+    res.status(301).redirect("/js/" + req.params.file)
+  });
+
+  // A redirect bc zii keeps typing the wrong address
   app.get("/dash", function (req, res) {
     res.status(307).redirect("/dashboard")
   });
@@ -61,7 +76,6 @@ module.exports = async function (app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/dashboard", isAuthenticated, async function (req, res) {
-    console.log(req.user)
     let { budList, budDetails } = await budLister({ from: req.user.id })
     budList.push(req.user.id)
     let userDetail = await userDetails({ id: req.user.id })
@@ -71,8 +85,9 @@ module.exports = async function (app) {
 
   //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
   app.post("/api/followReq/", function (req, res) {
-    db.Buds.create(["addresseeId", "UserId"], [req.body.addId, req.user.id])
+    db.Buds.create({ "addresseeId": req.body.addId, "UserId": req.user.id })
       .then(function (result) {
+        console.log("")
         res.json({ id: result.insertId });
       })
       .catch(function (err) {
@@ -82,13 +97,19 @@ module.exports = async function (app) {
 
   //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
   app.post("/api/buzz/", function (req, res) {
-    db.Buzz.create(["body", "reply_to", "userId"], [req.body.body, req.body.reply,
-      req.body.id])
+    let newBuzz = {}
+    if (req.body.reply) {
+      newBuzz = { "body": req.body.body, "reply_to": req.body.reply, "UserId": req.user.id }
+    } else {
+      newBuzz = { "body": req.body.body, "UserId": req.user.id }
+    }
+    db.Buzz.create(newBuzz)
       .then(function (result) {
         // Send back the ID of the new buzz, for fun
-        res.json({ id: result.insertId });
+        res.status(200).end();
       })
       .catch(function (err) {
+        console.log(err);
         res.json(err);
       });
   });
@@ -153,7 +174,6 @@ async function budLister(ref) {
       include: { model: db.User, as: "addressee", required: true, attributes: ["username", "avatar"] },
       where: { UserId: ref.from }
     })
-    console.log(buds)
     for (line of buds) {
       budList.push(line.addresseeId)
       budDetails.push(line.addressee.dataValues)
