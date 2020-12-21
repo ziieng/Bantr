@@ -54,21 +54,6 @@ module.exports = async function (app) {
   });
 
   // A redirect bc zii keeps typing the wrong address
-  app.get("/users/stylesheets/:file", function (req, res) {
-    res.status(301).redirect("/stylesheets/" + req.params.file)
-  });
-
-  // A redirect bc zii keeps typing the wrong address
-  app.get("/users/favicon/:file", function (req, res) {
-    res.status(301).redirect("/favicon/" + req.params.file)
-  });
-
-  // A redirect bc zii keeps typing the wrong address
-  app.get("/users/js/:file", function (req, res) {
-    res.status(301).redirect("/js/" + req.params.file)
-  });
-
-  // A redirect bc zii keeps typing the wrong address
   app.get("/dash", function (req, res) {
     res.status(307).redirect("/dashboard")
   });
