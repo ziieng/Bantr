@@ -31,13 +31,14 @@
             <div class="col-md-5">
                 <div class="card" id="follower" style="width: 18rem;">
                     <div class="card-body">
-                        {{#if user.self}}
-                        {{else}}
+                       
                         <a href="/users/{{username}}"><img src="{{avatar}}&s=40" class="img-thumbnail float-right"
                                 alt="user avatar for {{username}}">
                                 <a type="button" id="follow-buds"  data-id="{{this.id}}" class="btn btn-dark logoutbtn">Follow</a>
                         </a>
                         <h5 class="card-title">@{{username}}</h5>
+                        {{#if user.self}}
+                        {{else}}
                         <a href="#"  class="btn btnFix btn-primary p-1"
                             data-id="{{user.id}}"><b>+</b> bud</a>
                         
@@ -48,7 +49,7 @@
                 
                 <ul class="list-group following">
                     <h4 class="myBudsh4">my buds</h4>
-                    {{#each friends}}
+                    {{#each buds}}
                     {{#if following}}
                     {{> bud-block}}
                     {{/if}}

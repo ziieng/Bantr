@@ -12,40 +12,38 @@
             <div class="col-md-5">
                 <div class="card" id="follower" style="width: 18rem;">
                     <div class="card-body">
-                        {{#if user.self}}
-                        {{else}}
+
                         <a href="/users/{{username}}"><img src="{{avatar}}&s=40" class="img-thumbnail float-right"
                                 alt="user avatar for {{username}}">
                         </a>
                         <h5 class="card-title">@{{username}}</h5>
-                        <a href="#"  class="btn btnFix btn-primary p-1"
-                            data-id="{{user.id}}"><b>+</b> bud</a>
-                        
+                        {{#if user.self}}
+                        {{else}}
+                        <a href="#" class="btn btnFix btn-primary p-1" data-id="{{user.id}}"><b>+</b> bud</a>
+
                         {{/if}}
                     </div>
                 </div>
                 <br>
-                
+
                 <ul class="list-group following">
                     <h4 class="myBudsh4">my buds</h4>
-                    {{#each friends}}
-                    {{#if following}}
+                    {{#each buds}}
+
                     {{> bud-block}}
-                    {{/if}}
+
                     {{/each}}
-                    
+
                 </ul>
             </div>
             <div class="col-md-7 ">
                 <h1 class="postsBoards">Posts</h1>
                 <ul class="list-group postsStyle">
-                    {{#each followers}}
-                    <p class="alert alert-info postS " id="posts">
-                        {{this.body}}
-                    </p>
+                    {{#each buzz}}
+                    {{> buzz-block}}
                     {{/each}}
                     <br>
-                    
+
                 </ul>
 
             </div>
