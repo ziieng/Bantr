@@ -35,6 +35,12 @@ form {
   margin-top: 10%;
 }
 
+.bantr {
+  text-align: center;
+  color: #1b4e5f;
+  text-shadow: 1px 1px 1px   white;
+}
+
 .contSignupV2{
   background-color: #480052;
   margin-top: 10%;

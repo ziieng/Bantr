@@ -16,26 +16,30 @@
 </head>
 
 <body class="bodyBackground ">
+    <div class="overlay"></div>
     <div class="container ">
-        <nav class="navbar  navbarStyle justify-content-center " style="background-color: #480052;">
-            <a class="navbar-brand navbarStyle " href="#"><b class="n1 nav1">b</b><b class="n2 nav2">u</b><b
-                    class="nav3 n3">z</b><b class="nav4 n4">z</b><b class="nav5 n5">board</b></a>
+        <nav class="navbar " style="background-color: #480052;">
+            <a class="navbar-brand navbarStyle justify-content-center" href="#"><b class="n4 nav4">buzz</b><b
+                    class="nav5 n5">b</b><b class="nav3 n3">o</b><b class="nav1 n1">a</b><b class="nav2 n2">r</b><b
+                    class="nav5 n5">d</b></a>
+            <ul class="nav">
+                <li class="nav-item navButton">
+                    <a class="nav-link" style="color: #f45a01;" href="/logout">logout</a>
+                </li>
+            </ul>
         </nav>
+
     </div>
 
     <div class="container contDash ">
         <div class="row " id="post">
             <div class="col-md-12">
-                <div class="input-group ">
-                    <input type="textarea" class="form-control" rows="3" placeholder="What's on your mind?"
-                        aria-label="What's on your mind?" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Post</button>
-                </div>
+                {{> post-block}}
             </div>
         </div>
         <div class="row">
             <div class="col-md-5">
-                <div class="card" id="follower" style="width: 18rem;">
+                {{!-- <div class="card" id="follower" style="width: 18rem;">
                     <div class="card-body">
                         {{#if user.self}}
                         {{else}}
@@ -43,29 +47,28 @@
                                 alt="user avatar for {{username}}">
                         </a>
                         <h5 class="card-title">@{{username}}</h5>
-                        <a href="#" class="btn btnFix btn-primary p-1" data-id="{{user.id}}"><b>+</b> bud</a>
 
                         {{/if}}
                     </div>
-                </div>
+                </div> --}}
                 <br>
 
                 <ul class="list-group following" id="friends-list">
-                    <h4 class="myBudsh4">my buds</h4>
+                    <h4 class="myBudsh4 p-2">my buds</h4>
 
                     {{#each buds}}
                     {{> bud-block}}
                     {{/each}}
-
+                    
                 </ul>
             </div>
             <div class="col-md-7 ">
-                <h1 class="postsBoards">Posts</h1>
                 <ul class="list-group postsStyle">
+                    <h1 class="postsBoards p-2">buzz</h1>
                     {{#each buzz}}
                     {{> buzz-block}}
                     {{/each}}
-
+                    >
                 </ul>
 
             </div>
@@ -74,7 +77,6 @@
     </div>
 
 </body>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
 
