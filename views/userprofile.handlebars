@@ -19,10 +19,14 @@
                     </a>
                     <h5 class="card-title">@{{user.username}}</h5>
                     {{#if user.self}}
-                    <a class="btn btnFix btn-secondary p-1" href="/dashboard">back to dash</a>
-                    {{else}}
-                    <button class="btn btnFix btn-secondary p-1" id="follow-buds" data-id="{{user.id}}"><b>+</b>
-                        bud</button>
+                        <a class="btn btnFix btn-secondary p-1" href="/dashboard">back to dash</a>
+                        {{else}}
+                        {{#if user.buds}}
+                        <button class="btn btnFix btn-secondary p-1" id="remove-buds" data-id="{{user.id}}">already buds!</button>
+                        {{else}}
+                        <button class="btn btnFix btn-secondary p-1" id="follow-buds" data-id="{{user.id}}"><b>+</b>
+                            bud</button>
+                        {{/if}}
                     {{/if}}
                 </div>
             </div>

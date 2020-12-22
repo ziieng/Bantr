@@ -47,6 +47,12 @@ module.exports = async function (app) {
       userDetail.self = true
     } else {
       userDetail.self = false
+      let { budList, budDetails } = await budLister({ from: req.user.id })
+      if (budList.includes(userDetail.id)) {
+        userDetail.buds = true
+      } else {
+        userDetail.buds = false
+      }
     }
     let { budList, budDetails } = await budLister({ from: userDetail.id })
     let posts = await postLister({ UserId: userDetail.id })
@@ -109,6 +115,17 @@ module.exports = async function (app) {
     db.Buds.create({ "addresseeId": req.body.addId, "UserId": req.user.id })
       .then(function (result) {
         res.json({ id: result.insertId });
+      })
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  });
+
+  //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
+  app.post("/api/removeReq/", function (req, res) {
+    db.Buds.destroy({ where: { "addresseeId": req.body.remId, "UserId": req.user.id } })
+      .then(function (result) {
+        res.status(200).end();
       })
       .catch(function (err) {
         res.status(401).json(err);

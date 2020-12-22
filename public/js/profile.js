@@ -11,3 +11,17 @@ $("#follow-buds").on("click", function(event) {
       }
     );
   });
+
+$("#remove-buds").on("click", function (event) {
+  var removeFollowReq = {
+    remId: $(this).attr("data-id")
+  };
+  $.ajax("/api/removeReq/", {
+    method: "POST",
+    data: removeFollowReq
+  }).then(
+    function () {
+      location.reload();
+    }
+  );
+});
