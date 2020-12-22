@@ -263,11 +263,21 @@ border-radius: 0px !important;
   background-color: #164050;
   justify-content: center;
   align-items: center;
-  color: white;
+  color:  #164050;
   padding-bottom: 5px;
   
   /* margin: 10px; */
 }
+
+.cardStyle2{
+width: 400px;
+height: 350px;
+}
+.cardStyle2{
+  padding: 0px;
+  height: auto;
+  }
+
 #post {
   
   width: auto;
@@ -290,6 +300,7 @@ border-radius: 0px !important;
 }
 .following {
   background-color: #f45a01;
+  width: auto;
   color: white;
   padding-bottom: 5px;
   
