@@ -2,9 +2,9 @@
     <div class="overlay"></div>
     <div class="container ">
         <nav class="navbar " style="background-color: #480052;">
-            <a class="navbar-brand navbarStyle justify-content-center" href="#"><b class="n4 nav4">buzz</b><b
-                    class="nav5 n5">b</b><b class="nav3 n3">o</b><b class="nav1 n1">a</b><b class="nav2 n2">r</b><b
-                    class="nav5 n5">d</b></a>
+            <a class="navbar-brand navbarStyle justify-content-center" href="#"><b class="nav4 n4">b</b><b
+                    class="nav3 n3">u</b><b class="nav4 n4">z</b><b class="nav3 n3">z</b><b
+                class="n2 nav2">board</b></a>
             <ul class="nav">
                 <li class="nav-item navButton">
                     <a class="nav-link" style="color: #f45a01;" href="/logout">logout</a>
@@ -15,11 +15,6 @@
     </div>
 
     <div class="container contDash ">
-        <div class="row " id="post">
-            <div class="col-md-12">
-                {{> post-block}}
-            </div>
-        </div>
         <div class="row">
             <div class="col-md-5">
                 <div class="card" id="follower" style="width: 18rem;">
@@ -34,8 +29,14 @@
                         {{/if}}
                     </div>
                 </div>
-                <br>
+            </div>
 
+            <div class="col-md-7 " id="post">
+                {{> post-block}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
                 <ul class="list-group following" id="friends-list">
                     <h4 class="myBudsh4 p-2">my buds</h4>
 
@@ -61,7 +62,7 @@
 
     </div>
 
-  </div>
-</div>
-</div>
-<script src="/js/dashboard.js"></script>
+    </div>
+    </div>
+    </div>
+    <script src="/js/dashboard.js"></script>
