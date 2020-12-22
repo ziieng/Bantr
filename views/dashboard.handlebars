@@ -1,68 +1,78 @@
 <body class="bodyBackground ">
-    <div class="overlay"></div>
-    <div class="container ">
-        <nav class="navbar " style="background-color: #480052;">
-            <a class="navbar-brand navbarStyle justify-content-center" href="#"><b class="nav4 n4">b</b><b
-                    class="nav3 n3">u</b><b class="nav4 n4">z</b><b class="nav3 n3">z</b><b
-                class="n2 nav2">board</b></a>
-            <ul class="nav">
-                <li class="nav-item navButton">
-                    <a class="nav-link" style="color: #f45a01;" href="/logout">logout</a>
-                </li>
-            </ul>
-        </nav>
+  <div class="overlay"></div>
+  <nav class="navbar " style="background-color: #480052;">
+    <a class="navbar-brand navbarStyle justify-content-center" href="/dashboard"><b class="nav4 n4">b</b><b
+        class="nav3 n3">u</b><b class="nav4 n4">z</b><b class="nav3 n3">z</b><b class="n2 nav2">board</b></a>
+    <ul class="nav">
+      <li class="nav-item navButton">
+        <a class="nav-link" style="color: #f45a01;" href="/logout">logout</a>
+      </li>
+    </ul>
+  </nav>
 
-    </div>
-
-    <div class="container contDash ">
-        <div class="row">
-            <div class="col-md-5">
-                <div class="card" id="follower" style="width: 18rem;">
-                    <div class="card-body">
-                        {{#if user.self}}
-                        {{else}}
-                        <a href="/users/{{user.username}}"><img src="{{user.avatar}}" class="img-thumbnail float-right"
-                                alt="user avatar for {{user.username}}">
-                        </a>
-                        <h5 class="card-title">@{{user.username}}</h5>
-
-                        {{/if}}
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-7 " id="post">
-                {{> post-block}}
-            </div>
+  <div class="container contDash ">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="card userIdCard">
+          <div class="card-body">
+            <a href="/users/{{user.username}}"><img src="{{user.avatar}}" class="img-thumbnail float-right"
+                alt="user avatar for {{user.username}}">
+            </a>
+            <h5 class="card-title">Hey, @{{user.username}}!</h5>
+          </div>
         </div>
-        <div class="row">
-            <div class="col-md-5">
-                <ul class="list-group following" id="friends-list">
-                    <h4 class="myBudsh4 p-2">my buds</h4>
+      </div>
 
-                    {{#each buds}}
-                    {{> bud-block}}
-                    {{/each}}
-
-                </ul>
-            </div>
-            <div class="col-md-7 ">
-                <ul class="list-group postsStyle">
-                    <h1 class="postsBoards p-2">buzz</h1>
-                    {{#each buzz}}
-                    {{> buzz-block}}
-                    {{/each}}
-                    >
-                </ul>
-
-            </div>
-
+      <div class="col-md-7 " id="post">
+        <div class="card cardStyle my-1 py-0">
+          <div class="card-body py-2">
+            {{> post-block}}
+          </div>
         </div>
-    </div>
+      </div>
+      </div>
+    <div class="row">
+      <div class="col-md-5">
+        <ul class="list-group following" id="friends-list">
+          <a href="buds/{{user.username}}">
+            <h4 class="myBudsh4 p-2">my buds</h4>
+          </a>
+          {{#if buds}}
+          {{#each buds}}
+          {{> bud-block}}
+          {{/each}}
+          {{else}}
+          <div class="card following my-1 mx-3">
+            <div class="card-body ">No buds yet!</div>
+          </div>
+          {{/if}}
+
+        </ul>
+      </div>
+      <div class="col-md-7 ">
+        <ul class="list-group postsStyle">
+          <h1 class="postsBoards p-2">buzz</h1>
+          {{#if buzz}}
+          {{#each buzz}}
+          {{> buzz-block}}
+          {{/each}}
+          {{else}}
+          <div class="card cardStyle my-1">
+            <div class="card-body cardStyle2">
+              No buzzes yet!
+            </div>
+          </div>
+          {{/if}}
+        </ul>
+
+      </div>
 
     </div>
+  </div>
 
-    </div>
-    </div>
-    </div>
-    <script src="/js/dashboard.js"></script>
+  </div>
+
+  </div>
+  </div>
+  </div>
+  <script src="/js/dashboard.js"></script>

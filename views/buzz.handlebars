@@ -1,32 +1,59 @@
-<div class="container">
-  <nav class="navbar  navbarStyle justify-content-center " style="background-color: #480052;">
-    <a class="navbar-brand navbarStyle " href="#"><b class="n1 nav1">b</b><b class="n2 nav2">u</b><b
-        class="nav3 n3">z</b><b class="nav4 n4">z</b><b class="nav5 n5">z</b></a>
+<body class="bodyBackground ">
+  <div class="overlay"></div>
+  <nav class="navbar" style="background-color: #480052;">
+    <a class="navbar-brand navbarStyle justify-content-center" href="/dashboard"><b class="n1 nav1">b</b><b
+        class="n2 nav2">u</b><b class="nav3 n3">z</b><b class="nav4 n4">z</b><b class="nav5 n5">z</b></a>
+    <ul class="nav">
+      <li class="nav-item navButton">
+        <a class="nav-link" style="color: #f45a01;" href="/logout">logout</a>
+      </li>
+    </ul>
   </nav>
-</div>
-
-<div class="container contDash ">
-  <div class="col-md-8">
-    <div class="row">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><img src="{{main.avatar}}&s=50" alt="user avatar for {{main.username}}">
-            {{main.username}}</h5>
-          <p class="card-text">{{#if reply}}<a href="/buzz/{{main.reply}}">(replying to another Buzz):</a>
-            {{/if}}{{main.body}}</p>
-          <p>{{main.created}}</p>
+  <div class="container contDash  justify-content-center">
+    <div="row">
+      <div class="col-md-8 mx-auto justify-content-center">
+        <div class="row my-1">
+          <ul class="list-group postsStyle w-100">
+            <h1 class="postsBoards p-2">buzz</h1>
+            <div class="card cardStyle my-1">
+              <div class="card-body cardStyle2">
+                <div class="card-title"><a href="/users/{{focusBuzz.username}}"><img class="p-1 smallAv"
+                      src="{{focusBuzz.avatar}}" alt="user avatar for {{focusBuzz.username}}">
+                    @{{focusBuzz.username}}</a></div>
+                <div class="card-text pb-2">{{#if focusBuzz.reply}}<a
+                    href="/buzz/{{focusBuzz.reply}}-{{focusBuzz.buzzId}}">(replying to another
+                    Buzz):</a>
+                  {{/if}}{{focusBuzz.body}}
+                </div>
+                {{focusBuzz.created}}
+              </div>
+            </div>
+            <div class="card cardStyle my-1">
+              <div class="card-body py-1">
+                <h5>Reply to @{{focusBuzz.username}}:</h5>
+                {{> post-block}}
+              </div>
+            </div>
+          </ul>
+        </div>
+        <div class="row">
+          <ul class="list-group postsStyle w-100">
+            <h1 class="postsBoards">Previous Replies</h1>
+            {{#if buzz}}
+            {{#each buzz}}
+            {{> buzz-block}}
+            {{/each}}
+            {{else}}
+            <div class="card cardStyle my-1">
+              <div class="card-body cardStyle2">
+                No replies yet!
+              </div>
+            </div>
+            {{/if}}
+          </ul>
         </div>
       </div>
-    </div>
-    <div class="row">
-      {{> post-block}}
-      <h1 class="postsBoards">Past Replies</h1>
-      <ul class="list-group postsStyle">
-        {{#each buzz}}
-        {{> buzz-block}}
-        {{/each}}
-      </ul>
-    </div>
   </div>
-</div>
-<script src="/js/replies.js"></script>
+  </div>
+  <script src="/js/replies.js"></script>
+</body>

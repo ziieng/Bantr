@@ -39,9 +39,14 @@ html {
   background-image: url("./img/loginBG3.png") !important;
 }
 
-img {
-  padding: 20px;
+.smallAv {
+  height: 50px;
+  width: auto;
 }
+
+/* img {
+  padding: 20px;
+} */
 
 .fixCol {
   padding-left: 0px !important;
@@ -216,8 +221,6 @@ img {
 
 .postBlock{
   width: 100%!important;
-  
- 
 }
 
 .postBlockButton {
@@ -240,7 +243,7 @@ border-radius: 0px !important;
 }
 
 /* changed from chats1 */
-.follower {
+.userIdCard {
   background-color: #164050;
   color: white;
 }
@@ -268,12 +271,8 @@ border-radius: 0px !important;
   /* margin: 10px; */
 }
 
-.cardStyle2{
-width: 400px;
-height: 350px;
-}
-.cardStyle2{
-  padding: 0px;
+.cardStyle{
+  width: 95%;
   height: auto;
   }
 
@@ -298,14 +297,24 @@ height: 350px;
   text-shadow: 1px 1px 1px   #164050;
  
 }
+
 .following {
   background-color: #f45a01;
   width: auto;
   color: white;
-  padding-bottom: 5px;
-  
 }
 
+.budsfollowing {
+  background-color: #008f47;
+  width: auto;
+  color: white;
+}
+
+.budsfollower {
+  background-color: #164050;
+  width: auto;
+  color: white;
+}
 
 .myBudsh4 {
   text-align: center;
@@ -444,4 +453,26 @@ p {
   to {
     top: 75px;
   }
+}
+
+
+/* links for orange bud blocks */
+/* unvisited link */
+a.lightLink:link {
+  color: white;
+}
+
+/* visited link */
+a.lightLink:visited {
+  color: whitesmoke;
+}
+
+/* mouse over link */
+a.lightLink:hover {
+  color: lightblue;
+}
+
+/* selected link */
+a.lightLink:active {
+  color: slategray;
 }

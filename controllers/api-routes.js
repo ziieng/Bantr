@@ -53,6 +53,22 @@ module.exports = async function (app) {
     res.render("userprofile", { user: userDetail, buzz: posts, buds: budDetails })
   });
 
+  // Route for getting some data about our user to be used client side
+  app.get("/buds/:username", isAuthenticated, async function (req, res) {
+    let username = req.params.username
+    let userDetail = await userDetails({ username: username })
+    if (userDetail.id == req.user.id) {
+      userDetail.self = true
+    } else {
+      userDetail.self = false
+    }
+    let from = await budLister({ from: userDetail.id })
+    let fromDetails = from.budDetails
+    let to = await budLister({ to: userDetail.id })
+    let toDetails = to.budDetails
+    res.render("buds", { user: userDetail, following: fromDetails, followers: toDetails })
+  });
+
   app.get("/buzz/:id-:ref", isAuthenticated, async function (req, res) {
     let buzzId = req.params.id
     let sourceRef = req.params.ref
@@ -60,7 +76,9 @@ module.exports = async function (app) {
     let postList = await postLister({ reply_to: buzzId })
     let buzzMain = await postLister({ id: buzzId })
     for (i = 0; i < postList.length; i++) {
-      line.reply_to = ""
+      let line = postList[i]
+      console.log(line)
+      line.reply = ""
       if (sourceRef == line.buzzId) {
         refIndex = i
       }
@@ -68,7 +86,7 @@ module.exports = async function (app) {
     if (refIndex) {
       postList.splice(0, 0, postList.splice(refIndex, 1)[0])
     }
-    res.render("buzz", { main: buzzMain, buzz: postList })
+    res.render("buzz", { focusBuzz: buzzMain[0], buzz: postList })
   })
 
   // A redirect bc zii keeps typing the wrong address
@@ -90,7 +108,6 @@ module.exports = async function (app) {
   app.post("/api/followReq/", function (req, res) {
     db.Buds.create({ "addresseeId": req.body.addId, "UserId": req.user.id })
       .then(function (result) {
-        console.log("")
         res.json({ id: result.insertId });
       })
       .catch(function (err) {
@@ -155,6 +172,9 @@ async function postLister(whereVar) {
   for (line of posts) {
     let data = line.dataValues
     let user = line.User.dataValues
+    //format date with local time
+    let time = new Date(data.createdAt)
+    data.createdAt = time.toLocaleString()
     postData.push({
       body: data.body,
       reply: data.reply_to,

@@ -1,4 +1,5 @@
 tinymce.init({
+  width: "475",
   selector: "textarea#postBody",
   plugins: "emoticons",
   toolbar: "emoticons",
