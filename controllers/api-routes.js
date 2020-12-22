@@ -49,9 +49,27 @@ module.exports = async function (app) {
       userDetail.self = false
     }
     let { budList, budDetails } = await budLister({ from: userDetail.id })
-    let posts = await postLister(userDetail.id)
+    let posts = await postLister({ UserId: userDetail.id })
     res.render("userprofile", { user: userDetail, buzz: posts, buds: budDetails })
   });
+
+  app.get("/buzz/:id-:ref", isAuthenticated, async function (req, res) {
+    let buzzId = req.params.id
+    let sourceRef = req.params.ref
+    let refIndex = ""
+    let postList = await postLister({ reply_to: buzzId })
+    let buzzMain = await postLister({ id: buzzId })
+    for (i = 0; i < postList.length; i++) {
+      line.reply_to = ""
+      if (sourceRef == line.buzzId) {
+        refIndex = i
+      }
+    }
+    if (refIndex) {
+      postList.splice(0, 0, postList.splice(refIndex, 1)[0])
+    }
+    res.render("buzz", { main: buzzMain, buzz: postList })
+  })
 
   // A redirect bc zii keeps typing the wrong address
   app.get("/dash", function (req, res) {
@@ -64,7 +82,7 @@ module.exports = async function (app) {
     let { budList, budDetails } = await budLister({ from: req.user.id })
     budList.push(req.user.id)
     let userDetail = await userDetails({ id: req.user.id })
-    let posts = await postLister(budList)
+    let posts = await postLister({ UserId: budList })
     res.render("dashboard", { user: userDetail, buds: budDetails, buzz: posts });
   });
 
@@ -123,14 +141,14 @@ async function userDetails(search) {
   return userDetail
 }
 
-async function postLister(whereId) {
+async function postLister(whereVar) {
   let posts = await db.Buzz.findAll({
     include: {
       model: db.User,
       required: true,
       attributes: ["username", "avatar"]
     },
-    where: { UserId: whereId },
+    where: whereVar,
     order: [["createdAt", "DESC"]]
   })
   let postData = []

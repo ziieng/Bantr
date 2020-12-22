@@ -1,0 +1,32 @@
+<div class="container">
+  <nav class="navbar  navbarStyle justify-content-center " style="background-color: #480052;">
+    <a class="navbar-brand navbarStyle " href="#"><b class="n1 nav1">b</b><b class="n2 nav2">u</b><b
+        class="nav3 n3">z</b><b class="nav4 n4">z</b><b class="nav5 n5">z</b></a>
+  </nav>
+</div>
+
+<div class="container contDash ">
+  <div class="col-md-8">
+    <div class="row">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><img src="{{main.avatar}}&s=50" alt="user avatar for {{main.username}}">
+            {{main.username}}</h5>
+          <p class="card-text">{{#if reply}}<a href="/buzz/{{main.reply}}">(replying to another Buzz):</a>
+            {{/if}}{{main.body}}</p>
+          <p>{{main.created}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {{> post-block}}
+      <h1 class="postsBoards">Past Replies</h1>
+      <ul class="list-group postsStyle">
+        {{#each buzz}}
+        {{> buzz-block}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
+<script src="/js/replies.js"></script>
