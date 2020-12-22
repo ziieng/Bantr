@@ -1,8 +1,16 @@
-  <div class="container">
-    <nav class="navbar justify-content-center" style="background-color: #480052;">
-      <a class="navbar-brand  navbarStyle" href="#"><b class="nav1 n1">b</b><b class="nav2 n2">u</b><b
-          class="nav3 n3">d</b><b class="nav4 n4">s</b></a>
+<body class="bodyBackground">
+  <div class="overlay"></div>
+  <div class="container ">
+    <nav class="navbar " style="background-color: #480052;">
+      <a class="navbar-brand navbarStyle  justify-content-center" href="#"><b class="n1 nav1">b</b><b
+          class="nav2 n2">u</b><b class="nav3 n3">d</b><b class="nav5 n5">s</b></a>
+      <ul class="nav">
+        <li class="nav-item navButton">
+          <a class="nav-link" style="color: #f45a01;" href="/logout">logout</a>
+        </li>
+      </ul>
     </nav>
+
   </div>
   <!--Container -->
   <div class="container buds-container">
@@ -10,8 +18,9 @@
       <!--Column 1-->
 
       <div class="col-md-6">
-        <h2>followers</h2>
+
         <ul class="list-group following">
+          <h2 class="postsBoards">followers</h2>
           {{#each followers}}
           <!-- changed these elements FROM DIV -->
           {{> bud-block}}
@@ -20,8 +29,9 @@
       </div>
       <!-- Column 2 -->
       <div class="col-md-6">
-        <h2>following</h2>
+
         <ul class="list-group follower">
+          <h2 class="postsBoards">following</h2>
           {{#each following}}
           {{> bud-block}}
           </p>
@@ -31,4 +41,6 @@
     </div>
   </div>
   </div>
+
+
 </body>

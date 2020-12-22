@@ -1,7 +1,8 @@
-<div class="card">
-  <div class="card-body">
+<div class="card cardStyle">
+  <div class="card-body cardStyle2">
     <h5 class="card-title"><img src="{{avatar}}&s=50" alt="user avatar for {{username}}"> {{username}}</h5>
-    <p class="card-text">{{#if reply}}<a href="/buzz/{{reply}}-{{buzzId}}">(replying to another Buzz):</a> {{/if}}{{body}}
+    <p class="card-text">{{#if reply}}<a href="/buzz/{{reply}}-{{buzzId}}">(replying to another Buzz):</a>
+      {{/if}}{{body}}
     </p>
     <a href="/buzz/{{buzzId}}-0" class="btn btn-dark replyBtn" data-id="{{buzzId}}">reply to buzz</a> {{created}}
   </div>
