@@ -47,11 +47,53 @@ module.exports = async function (app) {
       userDetail.self = true
     } else {
       userDetail.self = false
+      let { budList, budDetails } = await budLister({ from: req.user.id })
+      if (budList.includes(userDetail.id)) {
+        userDetail.buds = true
+      } else {
+        userDetail.buds = false
+      }
     }
     let { budList, budDetails } = await budLister({ from: userDetail.id })
-    let posts = await postLister(userDetail.id)
+    let posts = await postLister({ UserId: userDetail.id })
     res.render("userprofile", { user: userDetail, buzz: posts, buds: budDetails })
   });
+
+  // Route for getting some data about our user to be used client side
+  app.get("/buds/:username", isAuthenticated, async function (req, res) {
+    let username = req.params.username
+    let userDetail = await userDetails({ username: username })
+    if (userDetail.id == req.user.id) {
+      userDetail.self = true
+    } else {
+      userDetail.self = false
+    }
+    let from = await budLister({ from: userDetail.id })
+    let fromDetails = from.budDetails
+    let to = await budLister({ to: userDetail.id })
+    let toDetails = to.budDetails
+    res.render("buds", { user: userDetail, following: fromDetails, followers: toDetails })
+  });
+
+  app.get("/buzz/:id-:ref", isAuthenticated, async function (req, res) {
+    let buzzId = req.params.id
+    let sourceRef = req.params.ref
+    let refIndex = ""
+    let postList = await postLister({ reply_to: buzzId })
+    let buzzMain = await postLister({ id: buzzId })
+    for (i = 0; i < postList.length; i++) {
+      let line = postList[i]
+      console.log(line)
+      line.reply = ""
+      if (sourceRef == line.buzzId) {
+        refIndex = i
+      }
+    }
+    if (refIndex) {
+      postList.splice(0, 0, postList.splice(refIndex, 1)[0])
+    }
+    res.render("buzz", { focusBuzz: buzzMain[0], buzz: postList })
+  })
 
   // A redirect bc zii keeps typing the wrong address
   app.get("/dash", function (req, res) {
@@ -64,7 +106,7 @@ module.exports = async function (app) {
     let { budList, budDetails } = await budLister({ from: req.user.id })
     budList.push(req.user.id)
     let userDetail = await userDetails({ id: req.user.id })
-    let posts = await postLister(budList)
+    let posts = await postLister({ UserId: budList })
     res.render("dashboard", { user: userDetail, buds: budDetails, buzz: posts });
   });
 
@@ -72,8 +114,18 @@ module.exports = async function (app) {
   app.post("/api/followReq/", function (req, res) {
     db.Buds.create({ "addresseeId": req.body.addId, "UserId": req.user.id })
       .then(function (result) {
-        console.log("")
         res.json({ id: result.insertId });
+      })
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  });
+
+  //route to create a new Buzz: requires body for text and reply_to id for any Buzz it's in reply to, server provides UserId for who is making the post
+  app.post("/api/removeReq/", function (req, res) {
+    db.Buds.destroy({ where: { "addresseeId": req.body.remId, "UserId": req.user.id } })
+      .then(function (result) {
+        res.status(200).end();
       })
       .catch(function (err) {
         res.status(401).json(err);
@@ -123,20 +175,23 @@ async function userDetails(search) {
   return userDetail
 }
 
-async function postLister(whereId) {
+async function postLister(whereVar) {
   let posts = await db.Buzz.findAll({
     include: {
       model: db.User,
       required: true,
       attributes: ["username", "avatar"]
     },
-    where: { UserId: whereId },
+    where: whereVar,
     order: [["createdAt", "DESC"]]
   })
   let postData = []
   for (line of posts) {
     let data = line.dataValues
     let user = line.User.dataValues
+    //format date with local time
+    let time = new Date(data.createdAt)
+    data.createdAt = time.toLocaleString()
     postData.push({
       body: data.body,
       reply: data.reply_to,

@@ -2,22 +2,55 @@
   box-sizing: border-box;
   ;
 }
+form.signup,
+form.login {
+  float: left;
+}
 
 body {
   width: 100vw;
   height: 100vh;
-  background-color: #fefbec;
+  position: relative;
+  background-color: #fefbecd8;
 }
+
+.overlay {
+  background: url("./img/loginBG3.png");
+  /* background-size: contain; */
+  background-repeat: repeat;
+  position: fixed;
+  height: 100% !important;
+  width: 100%;
+  opacity: 0.10;
+  z-index: 0;
+  margin: 0px;
+}
+
+/* .bodyBackground {
+  background-color: #fefbec;
+} */
 
 html {
   width: 100vw;
   height: auto;
 }
 
+#loginBG {
+  background-image: url("./img/loginBG3.png") !important;
+}
+
+.smallAv {
+  height: 50px;
+  width: auto;
+}
+
+/* img {
+  padding: 20px;
+} */
+
 .fixCol {
   padding-left: 0px !important;
 }
-
 #fixColBL {
   padding-left: 60px !important;
 }
@@ -29,6 +62,13 @@ html {
   margin-right: 0px !important;
 }
 
+.log-in {
+  background-color: #480052;
+  width: 400px;
+  height: 400px;
+  margin: 50px;
+  padding: 50px;
+}
 
 .styleForm {
   background-color: #480052;
@@ -71,6 +111,8 @@ html {
 }
 .bantr {
   text-align: center;
+  color: #1b4e5f;
+  text-shadow: 1px 1px 1px   white;
 }
 
 .list-group {
@@ -79,17 +121,28 @@ html {
 
 .navbarStyle {
   background-color: #480052 !important;
+  width: 100%;
+  height: 60px !important;
   color: #f45a01 !important;
   text-align: center;
   font-size: 60px !important;
   font-family: 'Patrick Hand', cursive;
+  text-shadow: 1px 1px 1px  #e7bc0d;
   padding-top: 0px;
   padding-bottom: 0x;
 }
 
+
 .navbar {
   padding-top: 0px !important;
   padding-bottom: 0px !important;
+}
+
+.navButton{
+  justify-content: end;
+  padding-left: 800px;
+  color: #f45a01 !important;
+  font-weight: bold;
 }
 
 .bantrApplogin {
@@ -97,16 +150,34 @@ html {
   height: 400px;
   background-color: #e7bc0d;
   animation-name: bantrAppLogin;
-  animation-duration: 5s;
+  animation-duration: 4s;
 }
 @keyframes bantrAppLogin {
   from {
-    background-color: #6c007b;
+    background-color:#480052;
   }
+  
   to {
     background-color: #e7bc0d;
   }
 }
+.bantrApplogin2 {
+  width: auto;
+  height: auto;
+  background-color:#480052;
+  animation-name: bantrAppLogin2;
+  animation-duration: 4s;
+}
+@keyframes bantrAppLogin2 {
+  from {
+    background-color: #e7bc0d;
+  }
+  
+  to {
+    background-color:#480052;
+  }
+}
+
 
 /* Classes for avatar selection */
 .avChoice {
@@ -147,6 +218,17 @@ html {
   justify-content: center;
   margin-top: 20px;
 }
+
+.postBlock{
+  width: 100%!important;
+}
+
+.postBlockButton {
+background-color:  #164050 !important;
+color: white !important;
+border-radius: 0px !important;
+}
+
 /* BUDS LIST ________________________________ */
 .buds-container {
   background-color: #480052 !important;
@@ -161,7 +243,7 @@ html {
 }
 
 /* changed from chats1 */
-.follower {
+.userIdCard {
   background-color: #164050;
   color: white;
 }
@@ -183,14 +265,21 @@ html {
   background-color: #164050;
   justify-content: center;
   align-items: center;
-  color: white;
-  padding: 5px;
-  margin: 10px;
+  color:  #164050;
+  padding-bottom: 5px;
+  
+  /* margin: 10px; */
 }
+
+.cardStyle{
+  width: 95%;
+  height: auto;
+  }
+
 #post {
   
-  width: auto;
-  height: 136px;
+  width: 100%;
+  height: auto;
 }
 .postS {
   background-color: #164050;
@@ -200,19 +289,41 @@ html {
 
 .postsBoards{
   text-align: center;
-  background-color: #480052;
+  background-color:  #e7bc0d;
+  font-family: 'Bangers', cursive;
   color: white;
+  width: 100%;
+  z-index: 10;
+  text-shadow: 1px 1px 1px   #164050;
+ 
 }
+
 .following {
   background-color: #f45a01;
+  width: auto;
   color: white;
-  
+}
+
+.budsfollowing {
+  background-color: #008f47;
+  width: auto;
+  color: white;
+}
+
+.budsfollower {
+  background-color: #164050;
+  width: auto;
+  color: white;
 }
 
 .myBudsh4 {
   text-align: center;
-  background-color: #480052;
+  background-color:  #e7bc0d;;
   color: white;
+  font-family: 'Josefin Sans' ;
+  font-weight: bold;
+  z-index: 10;
+  text-shadow: 1px 1px 1px   #164050;
 }
 p {
   padding: 10px;
@@ -256,49 +367,49 @@ p {
     top: 0px;
   }
   to {
-    left: 300px;
+    bottom: 200px;
   }
 }
 .nav2 {
   font-weight: bold;
   position: relative;
-  animation: n2 3s;
+  animation: n2 2s;
 }
 .n2 {
   animation-timing-function: ease;
 }
 @keyframes n2 {
   from {
-    top: 0px;
+    left: 0px;
   }
   to {
-    right: 300px;
+    left: 100px;
   }
 }
 
 .nav3 {
   font-weight: bold;
   position: relative;
-  animation: n3 3s;
+  animation: n3 2s;
 }
 .n3 {
   animation-timing-function: ease-in;
 }
 @keyframes n3 {
   from {
-    top: 0px;
+    bottom: 0px;
   }
   to {
-    bottom: 20px;
+    bottom: 15px;
   }
 }
 .nav4 {
   font-weight: bold;
   position: relative;
-  animation: n4 3s;
+  animation: n4 2s;
 }
 .n4 {
-  animation-timing-function: ease-out;
+  animation-timing-function: ease-in-out;
 }
 
 @keyframes n4 {
@@ -306,22 +417,62 @@ p {
     top: 0px;
   }
   to {
-    top: 20px;
+    top: 50px;
   }
 }
 .nav5 {
   font-weight: bold;
   position: relative;
-  animation: n5 3s;
+  animation: n5 2s;
 }
 .n5 {
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-out;
 }
 @keyframes n5 {
+  from {
+    bottom: 0px;
+  }
+  to {
+    bottom: 10px;
+  }
+}
+.nav6 {
+  font-weight: bold;
+  position: relative;
+  animation: n6 2s;
+  
+}
+.n6 {
+  animation-timing-function: ease;
+}
+
+@keyframes n6 {
   from {
     top: 0px;
   }
   to {
-    right: 100px;
+    top: 75px;
   }
+}
+
+
+/* links for orange bud blocks */
+/* unvisited link */
+a.lightLink:link {
+  color: white;
+}
+
+/* visited link */
+a.lightLink:visited {
+  color: whitesmoke;
+}
+
+/* mouse over link */
+a.lightLink:hover {
+  color: lightblue;
+}
+
+/* selected link */
+a.lightLink:active {
+  color: slategray;
 }

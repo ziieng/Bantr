@@ -1,47 +1,69 @@
-<body class="bodyBackground ">
-    <div class="container ">
-        <nav class="navbar  navbarStyle justify-content-center " style="background-color: #480052;">
-            <a class="navbar-brand navbarStyle " href="#"><b class="n1 nav1">b</b><b class="n2 nav2">u</b><b
-                    class="nav3 n3">d</b><b class="nav4 n4">f</b><b class="nav5 n5">i</b><b class="nav2 n2">l</b><b
-                    class="nav4 n4">e</b></a>
-        </nav>
-    </div>
-
-    <div class="container contUser ">
-        <div class="row">
-            <div class="col-md-5">
-                <div class="card" id="follower" style="width: 18rem;">
-                    <div class="card-body">
-                        <a href="/users/{{user.username}}"><img src="{{user.avatar}}" class="img-thumbnail float-right"
-                                alt="user avatar for {{user.username}}">
-                        </a>
-                        <h5 class="card-title">@{{user.username}}</h5>
-                        {{#if user.self}}
+<div class="overlay"></div>
+<nav class="navbar" style="background-color: #480052;">
+    <a class="navbar-brand navbarStyle justify-content-center " href="/dashboard"><b class="n1 nav1">b</b><b
+            class="n2 nav2">u</b><b class="nav3 n3">d</b><b class="nav4 n4">f</b><b class="nav5 n5">i</b><b
+            class="nav2 n2">l</b><b class="nav4 n4">e</b></a>
+    <ul class="nav">
+        <li class="nav-item navButton">
+            <a class="nav-link" style="color: #f45a01;" href="/logout">logout</a>
+        </li>
+    </ul>
+</nav>
+<div class="container contUser ">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card userIdCard">
+                <div class="card-body">
+                    <a href="/users/{{user.username}}"><img src="{{user.avatar}}" class="img-thumbnail float-right"
+                            alt="user avatar for {{user.username}}">
+                    </a>
+                    <h5 class="card-title">@{{user.username}}</h5>
+                    {{#if user.self}}
+                        <a class="btn btnFix btn-secondary p-1" href="/dashboard">back to dash</a>
                         {{else}}
-                        <button class="btn btnFix btn-secondary p-1" id="follow-buds" data-id="{{user.id}}"><b>+</b> bud</button>
+                        {{#if user.buds}}
+                        <button class="btn btnFix btn-secondary p-1" id="remove-buds" data-id="{{user.id}}">already buds!</button>
+                        {{else}}
+                        <button class="btn btnFix btn-secondary p-1" id="follow-buds" data-id="{{user.id}}"><b>+</b>
+                            bud</button>
                         {{/if}}
+                    {{/if}}
+                </div>
+            </div>
+            <br>
+
+            <ul class="list-group following" id="friends-list">
+                <a href="/buds/{{user.username}}">
+                    <h4 class="myBudsh4 p-2">{{#if user.self}}your{{else}}@{{user.username}}'s{{/if}}
+                        buds</h4>
+                </a>
+                {{#if buds}}
+                {{#each buds}}
+                {{> bud-block}}
+                {{/each}}
+                {{else}}
+                <div class="card following my-1 mx-3">
+                    <div class="card-body ">No buds yet!</div>
+                </div>
+                {{/if}}
+            </ul>
+        </div>
+        <div class="col-md-7 ">
+            <ul class="list-group postsStyle">
+                <h1 class="postsBoards">Posts</h1>
+                {{#if buzz}}
+                {{#each buzz}}
+                {{> buzz-block}}
+                {{/each}}
+                {{else}}
+                <div class="card cardStyle my-1">
+                    <div class="card-body cardStyle2">
                     </div>
                 </div>
+                {{/if}}
                 <br>
-
-                <ul class="list-group following">
-                    <h4 class="myBudsh4">my buds</h4>
-                    {{#each buds}}
-                    {{> bud-block}}
-                    {{/each}}
-
-                </ul>
-            </div>
-            <div class="col-md-7 ">
-                <h1 class="postsBoards">Posts</h1>
-                <ul class="list-group postsStyle">
-                    {{#each buzz}}
-                    {{> buzz-block}}
-                    {{/each}}
-                    <br>
-                </ul>
-            </div>
+            </ul>
         </div>
     </div>
+</div>
 <script src="../js/profile.js"></script>
-</body>
