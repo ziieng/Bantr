@@ -1,5 +1,5 @@
 $("#change-buds").on("click", function (event) {
-
+  let action = $("#change-buds").attr("data-action")
   if (action == "add") {
     var newFollowReq = {
       addId: $(this).attr("data-id")
