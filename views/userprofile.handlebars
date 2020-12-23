@@ -22,9 +22,10 @@
                         <a class="btn btnFix btn-secondary p-1" href="/dashboard">back to dash</a>
                         {{else}}
                         {{#if user.buds}}
-                        <button class="btn btnFix btn-secondary p-1" id="remove-buds" data-id="{{user.id}}">already buds!</button>
+                        <button class="btn btnFix btn-secondary p-1" id="change-buds" data-id="{{user.id}}" data-action="remove">already
+                            buds!</button>
                         {{else}}
-                        <button class="btn btnFix btn-secondary p-1" id="follow-buds" data-id="{{user.id}}"><b>+</b>
+                        <button class="btn btnFix btn-secondary p-1" id="change-buds" data-id="{{user.id}}" data-action="add"><b>+</b>
                             bud</button>
                         {{/if}}
                     {{/if}}

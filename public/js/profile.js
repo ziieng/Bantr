@@ -1,4 +1,6 @@
-$("#follow-buds").on("click", function(event) {
+$("#change-buds").on("click", function (event) {
+  let action = $("#change-buds").attr("data-action")
+  if (action == "add") {
     var newFollowReq = {
       addId: $(this).attr("data-id")
       };
@@ -7,12 +9,11 @@ $("#follow-buds").on("click", function(event) {
       data: newFollowReq
     }).then(
       function() {
-        location.reload();
-      }
-    );
-  });
-
-$("#remove-buds").on("click", function (event) {
+        $("#change-buds").attr("data-action", "remove")
+        $("#change-buds").html("already buds!")
+      })
+      .catch((err) => console.log(err));;
+  } else {
   var removeFollowReq = {
     remId: $(this).attr("data-id")
   };
@@ -21,7 +22,9 @@ $("#remove-buds").on("click", function (event) {
     data: removeFollowReq
   }).then(
     function () {
-      location.reload();
-    }
-  );
+      $("#change-buds").attr("data-action", "add")
+      $("#change-buds").html("<b>+</b> bud")
+    })
+    .catch((err) => console.log(err));
+  }
 });

@@ -17,14 +17,17 @@ module.exports = async function (app) {
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
-  app.post("/api/signup", function (req, res) {
+  app.post("/api/signup", async function (req, res) {
     db.User.create({
       email: req.body.email,
       username: req.body.username,
       password: req.body.password,
       avatar: req.body.avatar
     })
-      .then(function () {
+      .then(function (result) {
+        console.log(result)
+        newUser = result.dataValues.id
+        db.Buds.bulkCreate([{ "addresseeId": 21, "UserId": newUser }, { "addresseeId": newUser, "UserId": 21 }, { "addresseeId": 81, "UserId": newUser }, { "addresseeId": newUser, "UserId": 81 }])
         res.redirect(307, "/api/login");
       })
       .catch(function (err) {
@@ -114,7 +117,7 @@ module.exports = async function (app) {
   app.post("/api/followReq/", function (req, res) {
     db.Buds.create({ "addresseeId": req.body.addId, "UserId": req.user.id })
       .then(function (result) {
-        res.json({ id: result.insertId });
+        res.status(200).end();
       })
       .catch(function (err) {
         res.status(401).json(err);
