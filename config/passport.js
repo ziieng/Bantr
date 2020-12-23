@@ -28,7 +28,7 @@ passport.use(new LocalStrategy(
           message: "Incorrect password."
         });
       }
-      // If none of the above, return the user
+      // If none of the above, return the user without their password
       let scrubUser = {
         id: dbUser.id,
         email: dbUser.email,
