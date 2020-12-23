@@ -114,7 +114,7 @@ module.exports = async function (app) {
   app.post("/api/followReq/", function (req, res) {
     db.Buds.create({ "addresseeId": req.body.addId, "UserId": req.user.id })
       .then(function (result) {
-        res.json({ id: result.insertId });
+        res.status(200).end();
       })
       .catch(function (err) {
         res.status(401).json(err);
