@@ -1,14 +1,15 @@
 $(document).ready(function () {
+  //set up popover for Gravatar reference
   $(function () {
     $('[data-toggle="popover"]').popover()
   })
-  // Getting references to our form and input
+  // Getting references to our form and inputs
   let signUpForm = $("form.signup");
   let emailInput = $("#email-input");
   let passwordInput = $("#password-input");
   let userInput = $("#username-input");
   
-  //populate avatar choices with user's email when field changes
+  //populate avatar choices with user's email when email field changes
   $("#email-input").change(function () {
     let email = $("#email-input").val().trim();
     $.post("api/grav/", { "email": email }, (reply) => {
@@ -20,12 +21,13 @@ $(document).ready(function () {
     })
   });
 
+  //click event for selecting an avatar
   $(".avChoice").on("click", function (event) {
     $(".avActive").removeClass("avActive");
     $(this).addClass("avActive")
   })
 
-  // When the signup button is clicked, we validate the email and password are not blank
+  // When the signup button is clicked, we validate the email, username, and password are not blank
   signUpForm.on("submit", function (event) {
     event.preventDefault();
     let selIcon = $(".avActive").attr("src")
@@ -38,7 +40,7 @@ $(document).ready(function () {
     if (!userData.username || !userData.email || !userData.password) {
       return;
     }
-    // If we have an email and password, run the signUpUser function
+    // If we have all the data, run the signUpUser function
     signUpUser(userData);
     userInput.val("");
     emailInput.val("");
@@ -50,12 +52,13 @@ $(document).ready(function () {
   function signUpUser(userData) {
     $.post("/api/signup", userData)
       .then(function (data) {
+        //on success, continue to dashboard
         window.location.replace("/dashboard");
-        // If there's an error, handle it by throwing up a bootstrap alert
       })
+      // If there's an error, handle it by throwing up a bootstrap alert
       .catch(handleLoginErr);
   }
-
+  //populattes alert with error
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);

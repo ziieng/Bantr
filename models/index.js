@@ -1,4 +1,5 @@
 'use strict';
+//this page is almost entirely from the provided starter code
 
 var fs        = require('fs');
 var path      = require('path');
