@@ -2,24 +2,27 @@
 // Creating our Buzz model for posts
 module.exports = function (sequelize, DataTypes) {
   var Buzz = sequelize.define("Buzz", {
+    //text of post
     body: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
       validate: {
         len: [1, 140]
       }
     },
+    //id of post it's replying to if applicable
     reply_to: {
       type: DataTypes.INTEGER,
       allowNull: true,
     }
-  }, {
+  },
+    //don't let Sequelize pluralize the table name because it does it wrong
+    {
     freezeTableName: true
   });
 
   Buzz.associate = function (models) {
-    // We're saying that a Post should belong to an Author
-    // A Post can't be created without an Author due to the foreign key constraint
+    // Associate a Post to a User as a foreign key
     Buzz.belongsTo(models.User, {
       foreignKey: {
         allowNull: false

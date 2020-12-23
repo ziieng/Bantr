@@ -12,6 +12,7 @@ module.exports = function (sequelize, DataTypes) {
         isEmail: true
       }
     },
+    //usernames must be provided, unique, and within certain parameters
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -26,7 +27,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    // Store url for Gravatar
+    // Store url for Gravatar icon selected
     avatar: {
       type: DataTypes.STRING,
       allowNull: true
@@ -34,20 +35,20 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   User.associate = function (models) {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
+    // Associating User with Posts
+    // When an User is deleted, also delete any associated Posts
     User.hasMany(models.Buzz, {
       onDelete: "cascade"
     });
+    //Associate user to Buds table as the addressee of requests
     User.belongsToMany(User, { as: "addressee", through: "Buds" });
   };
 
-  // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
+  // method to check if an unhashed password entered by the user, when hashed, matches the hashed password stored in our database
   User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
   };
-  // Hooks are automatic methods that run during various phases of the User Model lifecycle
-  // In this case, before a User is created, we will automatically hash their password
+  // before a User is created, hash their password
   User.addHook("beforeCreate", function (user) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });

@@ -1,38 +1,78 @@
-<nav class="navbar">
-  <span class="navbar-brand mb-0 h1" id="nav-heading">Chat Exchanges</span>
-</nav>
-<!--Container -->
-<div class="container" style="margin:100px;align-items: center;">
-  <div class="row">
-    <!--Column 1-->
-    <div class="col-md-6">
-      <div class="row mb-3" id="post">
-        <div class="input-group mb-3">
-          <input type="textarea" class="form-control" rows="3" placeholder="What's on your mind?"
-            aria-label="What's on your mind?" aria-describedby="button-addon2">
-          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Post</button>
+<body class="bodyBackground ">
+  <div class="overlay"></div>
+  <nav class="navbar " style="background-color: #480052;">
+    <a class="navbar-brand navbarStyle justify-content-center" href="/dashboard"><b class="nav4 n4">b</b><b
+        class="nav3 n3">u</b><b class="nav4 n4">z</b><b class="nav3 n3">z</b><b class="n2 nav2">board</b></a>
+    <ul class="nav">
+      <li class="nav-item navButton">
+        <a class="nav-link" style="color: #f45a01;" href="/logout">logout</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container contDash">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="card userIdCard">
+          <div class="card-body">
+            <a href="/users/{{user.username}}"><img src="{{user.avatar}}" class="img-thumbnail float-right"
+                alt="user avatar for {{user.username}}">
+            </a>
+            <h5 class="card-title">Hey, @{{user.username}}!</h5>
+          </div>
         </div>
       </div>
-      <div class="container">
-        <h4>Your Buds</h1>
-          <ul class="list-group" id="friends-list">
+
+      <div class="col-md-7 " id="post">
+        <div class="card cardStyle my-1 py-0">
+          <div class="card-body py-2">
+            {{> post-block}}
+          </div>
+        </div>
+      </div>
+      </div>
+    <div class="row">
+      <div class="col-md-5">
+        <ul class="list-group following" id="friends-list">
+          <a href="buds/{{user.username}}">
+            <h4 class="myBudsh4 p-2">my buds</h4>
+          </a>
+          {{#if buds}}
           {{#each buds}}
           {{> bud-block}}
           {{/each}}
+          {{else}}
+          <div class="card following my-1 mx-3">
+            <div class="card-body ">No buds yet!</div>
+          </div>
+          {{/if}}
+
         </ul>
       </div>
-    </div>
-
-    <!-- Column 2 -->
-    <div class="col-md-6">
-      <div class="container">
-        <h1>Posts</h1>
-        <ul class="list-group">
+      <div class="col-md-7 ">
+        <ul class="list-group postsStyle">
+          <h1 class="postsBoards p-2">buzz</h1>
+          {{#if buzz}}
           {{#each buzz}}
           {{> buzz-block}}
           {{/each}}
+          {{else}}
+          <div class="card cardStyle my-1">
+            <div class="card-body cardStyle2">
+              No buzzes yet!
+            </div>
+          </div>
+          {{/if}}
         </ul>
+
       </div>
+
     </div>
   </div>
-</div>
+
+  </div>
+
+  </div>
+  </div>
+  </div>
+  <script src="/js/dashboard.js"></script>

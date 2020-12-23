@@ -1,38 +1,56 @@
-<body>
-  <div class="container">
-    <nav class="navbar navbarStyle justify-content-center " style="background-color: #480052;">
-      <a class="navbar-brand navbarStyle " href="#"><b class="nav1 n1">b</b><b class="nav2 n2">u</b><b
-          class="nav3 n3">d</b><b class="nav4 n4">s</b></a>
-    </nav>
-  </div>
+<div class="conatiner-fluid">
+<body class="bodyBackground">
+  <div class="overlay"></div>
+  <nav class="navbar " style="background-color: #480052;">
+    <a class="navbar-brand navbarStyle  justify-content-center" href="/"><b class="n1 nav1">b</b><b
+        class="nav2 n2">u</b><b class="nav3 n3">d</b><b class="nav5 n5">s</b></a>
+    <ul class="nav float-right">
+      <li class="nav-item navButton">
+        <a class="nav-link" style="color: #f45a01;" href="/logout">logout</a>
+      </li>
+    </ul>
+  </nav>
+</div>
   <!--Container -->
   <div class="container buds-container">
     <div class="row">
       <!--Column 1-->
 
       <div class="col-md-6">
-        <h2>followers</h2>
-        <ul class="list-group">
+
+        <ul class="list-group budsfollowing">
+          <h2 class="postsBoards"> buds following {{#if user.self}}you{{else}}@{{user.username}}{{/if}}</h2>
+          {{#if followers}}
           {{#each followers}}
           <!-- changed these elements FROM DIV -->
-          <p class="alert alert-info" id="chats1">
-            {{this.followers}}
-          </p>
+          {{> bud-block}}
           {{/each}}
+          {{else}}
+          <div class="card following my-1 mx-3">
+            <div class="card-body ">No buds yet!</div>
+          </div>
+          {{/if}}
         </ul>
       </div>
       <!-- Column 2 -->
       <div class="col-md-6">
-        <h2>following</h2>
-        <ul class="list-group">
+
+        <ul class="list-group budsfollower">
+          <h2 class="postsBoards">{{#if user.self}}your{{else}}@{{user.username}}'s{{/if}} buds</h2>
+          {{#if following}}
           {{#each following}}
-          <!-- changed these elements FROM DIV -->
-          <p class="alert alert-info" id="chats2">
-            {{this.following}}
-          </p>
+          {{> bud-block}}
           {{/each}}
+          {{else}}
+          <div class="card following my-1 mx-3">
+            <div class="card-body ">No buds yet!</div>
+          </div>
+          {{/if}}
         </ul>
       </div>
     </div>
   </div>
   </div>
+
+
+</body>

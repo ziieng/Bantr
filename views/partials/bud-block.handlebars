@@ -1,6 +1,9 @@
-<li class="list-group-item">
-	<a href="/users/{{username}}"><img src="{{avatar}}&s=40" class="img-thumbnail float-right"
-			alt="user avatar for {{username}}">
-		<h5 class="py-1">@{{username}}</h5>
-	</a>
-</li>
+<div class="card following my-1 mx-3">
+    <div class="card-body ">
+        <a href="/users/{{username}}" class="lightLink">
+            <h5>@{{username}}
+                <img src="{{avatar}}" class="img-thumbnail float-right" alt="user avatar for {{username}}">
+            </h5>
+        </a>
+    </div>
+</div>
