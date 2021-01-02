@@ -143,7 +143,7 @@ body {
 
 .bantrApplogin {
   width: 400px;
-  height: 400px;
+  height: auto;
   background-color: #e7bc0d;
   animation-name: bantrAppLogin;
   animation-duration: 4s;
