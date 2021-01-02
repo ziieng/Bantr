@@ -5,7 +5,7 @@ $(document).ready(function() {
   var loginForm = $("form.login");
   var emailInput = $("#email-input");
   var passwordInput = $("#password-input");
-  var demoLogin = $("#demoLink")
+  var demoLogin = $("#demo-button")
 
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", function(event) {
@@ -26,7 +26,7 @@ $(document).ready(function() {
   });
 
   // created a "panopticon" account to view all the seed data posts without logging in
-  demoLogin.on("click", function () {
+  demoLogin.on("click", function (event) {
     loginUser("view@all.com", "demo");
   })
 
