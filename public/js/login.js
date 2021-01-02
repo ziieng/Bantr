@@ -1,10 +1,11 @@
-//this doc was provided by starter code
+//this doc was provided by starter code, only addition is the demoLogin function.
 
 $(document).ready(function() {
   // Getting references to our form and inputs
   var loginForm = $("form.login");
   var emailInput = $("#email-input");
   var passwordInput = $("#password-input");
+  var demoLogin = $("#demoLink")
 
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", function(event) {
@@ -23,6 +24,11 @@ $(document).ready(function() {
     emailInput.val("");
     passwordInput.val("");
   });
+
+  // created a "panopticon" account to view all the seed data posts without logging in
+  demoLogin.on("click", function () {
+    loginUser("view@all.com", "demo");
+  })
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
   function loginUser(email, password) {
